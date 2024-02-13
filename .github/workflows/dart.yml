@@ -1,21 +1,42 @@
-name: Flutter_Analyzer_Formatter
+name: CI
 
 on:
   pull_request:
-    branches: [main]
+    branches:
+      - main
+      - develop
 
 jobs:
-  flutter_analyze:
+  analyze_test:
+    name: Run flutter test and analyze
     runs-on: ubuntu-latest
-    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@v4
+  # ref: https://github.com/marketplace/actions/flutter-action
+      - name: checkout source code
+        uses: actions/checkout@v3
+
+      - name: install flutter
+        uses: subosito/flutter-action@v4
+
         with:
-          fetch-depth: 1
-      - uses: subosito/flutter-action@v2
-        with:
-          flutter-version: "3.16.9" <- ここは使用してるFlutterのversionを指定。
-      - run: flutter pub get
-      - run: flutter analyze
-      // 特定のファイルだけ省いたりできないので./のところを./dir1 ./dir2 ./dir2 ...みたいな感じで直接指定すれば良い
-      - run: dart format ./ --set-exit-if-changed
+          channel: "stable"
+
+      # 依存関係読み込み
+      - name: get dependencies
+        run: flutter pub get
+
+      # インポートが整列されているかチェック
+      - name: check import sort
+        run: flutter pub run import_sorter:main --no-comments --exit-if-changed
+
+      # コードのフォーマットチェック
+      - name: check code format
+        run: dart format --set-exit-if-changed .
+
+      # analyzeに引っ掛かるかチェック
+      - name: check analyze
+        run: flutter analyze
+
+      # テストを通過するかチェック
+      #- name: test
+      #  run: flutter test
