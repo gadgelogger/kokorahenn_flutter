@@ -1,0 +1,21 @@
+name: Flutter_Analyzer_Formatter
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  flutter_analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: "3.16.9" <- ここは使用してるFlutterのversionを指定。
+      - run: flutter pub get
+      - run: flutter analyze
+      // 特定のファイルだけ省いたりできないので./のところを./dir1 ./dir2 ./dir2 ...みたいな感じで直接指定すれば良い
+      - run: dart format ./ --set-exit-if-changed
