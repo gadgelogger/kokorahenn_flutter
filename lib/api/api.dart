@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:kokorahenn_flutter/model/shop.dart'; // モデルのインポートパスを適切に設定してください
+import 'package:kokorahenn_flutter/model/shop.dart';
 
 class ShopService {
   final Uri url = Uri.parse(
