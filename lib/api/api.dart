@@ -1,6 +1,13 @@
+// Dart imports:
 import 'dart:convert';
+
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:http/http.dart' as http;
+
+// Project imports:
 import 'package:kokorahenn_flutter/model/shop.dart';
 
 class ShopService {
