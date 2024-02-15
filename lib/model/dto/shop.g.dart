@@ -91,21 +91,21 @@ Map<String, dynamic> _$$ShopImplToJson(_$ShopImpl instance) =>
       'address': instance.address,
       'station_name': instance.station_name,
       'ktai_coupon': instance.ktai_coupon,
-      'large_service_area': instance.large_service_area,
-      'service_area': instance.service_area,
-      'large_area': instance.large_area,
-      'middle_area': instance.middle_area,
-      'small_area': instance.small_area,
+      'large_service_area': instance.large_service_area?.toJson(),
+      'service_area': instance.service_area?.toJson(),
+      'large_area': instance.large_area?.toJson(),
+      'middle_area': instance.middle_area?.toJson(),
+      'small_area': instance.small_area?.toJson(),
       'lat': instance.lat,
       'lng': instance.lng,
-      'genre': instance.genre,
-      'sub_genre': instance.sub_genre,
-      'budget': instance.budget,
+      'genre': instance.genre?.toJson(),
+      'sub_genre': instance.sub_genre?.toJson(),
+      'budget': instance.budget?.toJson(),
       'capacity': instance.capacity,
       'access': instance.access,
       'mobile_access': instance.mobile_access,
-      'urls': instance.urls,
-      'photo': instance.photo,
+      'urls': instance.urls?.toJson(),
+      'photo': instance.photo?.toJson(),
       'open': instance.open,
       'close': instance.close,
       'party_capacity': instance.party_capacity,
@@ -134,7 +134,7 @@ Map<String, dynamic> _$$ShopImplToJson(_$ShopImpl instance) =>
       'pet': instance.pet,
       'child': instance.child,
       'wifi': instance.wifi,
-      'coupon_urls': instance.coupon_urls,
+      'coupon_urls': instance.coupon_urls?.toJson(),
     };
 
 _$AreaImpl _$$AreaImplFromJson(Map<String, dynamic> json) => _$AreaImpl(
@@ -192,8 +192,8 @@ _$PhotoImpl _$$PhotoImplFromJson(Map<String, dynamic> json) => _$PhotoImpl(
 
 Map<String, dynamic> _$$PhotoImplToJson(_$PhotoImpl instance) =>
     <String, dynamic>{
-      'pc': instance.pc,
-      'mobile': instance.mobile,
+      'pc': instance.pc?.toJson(),
+      'mobile': instance.mobile?.toJson(),
     };
 
 _$PcImpl _$$PcImplFromJson(Map<String, dynamic> json) => _$PcImpl(
