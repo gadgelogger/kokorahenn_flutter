@@ -5,11 +5,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 // Package imports:
 import 'package:http/http.dart' as http;
+import 'package:kokorahenn_flutter/env/env.dart';
 // Project imports:
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 import 'package:kokorahenn_flutter/model/response/hotpepper_gourmet_response_result.dart';
 
-String apiKey = apiKey;
+String apiKey = Env.key;
 
 class ShopService {
   final Uri url = Uri.parse(
