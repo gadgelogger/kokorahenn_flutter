@@ -9,7 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 import 'package:kokorahenn_flutter/model/response/hotpepper_gourmet_response_result.dart';
 
-String apiKey = 'fbf9b9be8fecf32a';
+String apiKey = apiKey;
 
 class ShopService {
   final Uri url = Uri.parse(

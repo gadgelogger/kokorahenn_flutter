@@ -16,5 +16,5 @@ _$HotpepperGourmetResponseResultImpl
 Map<String, dynamic> _$$HotpepperGourmetResponseResultImplToJson(
         _$HotpepperGourmetResponseResultImpl instance) =>
     <String, dynamic>{
-      'results': instance.results.toJson(),
+      'results': instance.results,
     };
