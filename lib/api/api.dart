@@ -3,12 +3,11 @@ import 'dart:convert';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
-
 // Package imports:
 import 'package:http/http.dart' as http;
-
 // Project imports:
-import 'package:kokorahenn_flutter/model/shop.dart';
+import 'package:kokorahenn_flutter/model/dto/shop.dart';
+import 'package:kokorahenn_flutter/model/response/hotpepper_gourmet_response.dart';
 
 import '../env/env.dart';
 
@@ -27,24 +26,15 @@ class ShopService {
       return <Shop>[];
     }
 
-    final jsonResponse = jsonDecode(response.body);
-    if (jsonResponse is Map<String, dynamic>) {
-      final results = jsonResponse['results'];
-      if (results is Map<String, dynamic>) {
-        final shopsJson = results['shop'];
-        if (shopsJson is List<dynamic>) {
-          final shops = shopsJson.map((shopJson) {
-            if (shopJson is Map<String, dynamic>) {
-              return Shop.fromJson(shopJson);
-            } else {
-              debugPrint('shopJson is not a Map<String, dynamic>');
-              return Shop();
-            }
-          }).toList();
-          return shops;
-        }
-      }
+    try {
+      final jsonResponse = jsonDecode(response.body) as Map<String, dynamic>;
+      final responseData = HotpepperGourmetResponse.fromJson(
+        jsonResponse['results'] as Map<String, dynamic>,
+      );
+      return responseData.shop;
+    } on Exception catch (e) {
+      debugPrint('Error: $e');
+      return <Shop>[];
     }
-    return <Shop>[];
   }
 }
