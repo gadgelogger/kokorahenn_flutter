@@ -10,10 +10,11 @@ class Shop with _$Shop {
   factory Shop({
     String? id,
     String? name,
-    String? logo_image,
-    String? name_kana,
+    // 全部キャメルケースが良い
+    String? logoImage,
+    String? nameKana,
     String? address,
-    String? station_name,
+    String? stationName,
     int? ktai_coupon,
     Area? large_service_area,
     Area? service_area,
