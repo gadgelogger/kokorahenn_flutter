@@ -10,9 +10,13 @@ import 'package:http/http.dart' as http;
 // Project imports:
 import 'package:kokorahenn_flutter/model/shop.dart';
 
+import '../env/env.dart';
+
+String apiKey = Env.key;
+
 class ShopService {
   final Uri url = Uri.parse(
-    'https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=f0496b62486794fc&large_area=Z011&format=json',
+    'https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=$apiKey&large_area=Z011&format=json',
   );
 
   Future<List<Shop>> getAllShops() async {

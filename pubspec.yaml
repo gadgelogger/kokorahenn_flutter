@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   build_runner: ^2.4.8
+  envied: ^0.5.3
   flutter:
     sdk: flutter
   freezed: ^2.4.7
@@ -19,6 +20,7 @@ dependencies:
   pedantic_mono: ^1.24.0+1
 
 dev_dependencies:
+  envied_generator: ^0.5.3
 flutter_lints: ^2.0.0
 flutter_test:
     sdk: flutter
