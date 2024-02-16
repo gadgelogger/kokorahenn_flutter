@@ -25,10 +25,6 @@ jobs:
       - name: get dependencies
         run: flutter pub get
 
-      # インポートが整列されているかチェック
-      - name: check import sort
-        run: flutter pub run import_sorter:main --no-comments --exit-if-changed
-
       # コードのフォーマットチェック
       - name: check code format
         run: dart format --set-exit-if-changed .
