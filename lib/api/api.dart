@@ -10,14 +10,16 @@ import 'package:kokorahenn_flutter/env/env.dart';
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 import 'package:kokorahenn_flutter/model/response/hotpepper_gourmet_response_result.dart';
 
-String apiKey = Env.key;
-
 class ShopService {
-  final Uri url = Uri.parse(
-    'https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=$apiKey&large_area=Z011&format=json',
-  );
+  final String apiKey = Env.key;
 
-  Future<List<Shop>> getAllShops() async {
+  Future<List<Shop>> getAllShops(
+    double latitude,
+    double longitude,
+  ) async {
+    final url = Uri.parse(
+      'https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=$apiKey&format=json&lat=$latitude&lng=$longitude&range=5',
+    );
     final response = await http.get(url);
 
     if (response.statusCode != 200) {
@@ -26,6 +28,7 @@ class ShopService {
     }
 
     try {
+      debugPrint('Response: ${url}');
       final jsonResponse = jsonDecode(response.body) as Map<String, dynamic>;
       final results = HotpepperGourmetResponseResult.fromJson(jsonResponse);
       return results.results.shop;
@@ -35,7 +38,6 @@ class ShopService {
     }
   }
 }
-
 
 // // retrofit
 // @GET('')
