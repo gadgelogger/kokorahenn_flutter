@@ -72,3 +72,12 @@ lib/generated_plugin_registrant.dart
 #.env
 *.env
 *env.g.dart
+
+# Generated Files
+*.freezed.dart
+*.g.dart
+.gitignore
+lib/model/response/hotpepper_gourmet_response_result.freezed.dart
+lib/model/response/hotpepper_gourmet_response_result.g.dart
+lib/model/response/hotpepper_gourmet_response.freezed.dart
+lib/model/response/hotpepper_gourmet_response.g.dart
