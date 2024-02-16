@@ -1,15 +1,19 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Project imports:
 import '../widgets/bottom_navigation.dart';
 import 'search_screen.dart';
 import 'setting.dart';
 
 class MainPage extends StatefulWidget {
+  const MainPage({super.key});
+
   @override
-  _MainPageState createState() => _MainPageState();
+  MainPageState createState() => MainPageState();
 }
 
-class _MainPageState extends State<MainPage> {
+class MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[

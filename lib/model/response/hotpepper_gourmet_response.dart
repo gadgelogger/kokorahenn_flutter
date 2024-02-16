@@ -1,4 +1,7 @@
+// Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// Project imports:
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 
 part 'hotpepper_gourmet_response.freezed.dart';
