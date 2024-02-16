@@ -1,17 +1,20 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
+
+// Project imports:
 import '../api/api.dart';
 import '../model/dto/shop.dart';
+
 import '../services/location_service.dart'; // LocationServiceをインポート
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
 
   @override
-  _SearchPageState createState() => _SearchPageState();
+  SearchPageState createState() => SearchPageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class SearchPageState extends State<SearchPage> {
   final userRequest = ShopService();
   final locationService = LocationService();
 

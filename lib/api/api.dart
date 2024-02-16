@@ -3,10 +3,12 @@ import 'dart:convert';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
+
 // Package imports:
 import 'package:http/http.dart' as http;
-import 'package:kokorahenn_flutter/env/env.dart';
+
 // Project imports:
+import 'package:kokorahenn_flutter/env/env.dart';
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 import 'package:kokorahenn_flutter/model/response/hotpepper_gourmet_response_result.dart';
 
@@ -28,7 +30,7 @@ class ShopService {
     }
 
     try {
-      debugPrint('Response: ${url}');
+      debugPrint('Response: $url');
       final jsonResponse = jsonDecode(response.body) as Map<String, dynamic>;
       final results = HotpepperGourmetResponseResult.fromJson(jsonResponse);
       return results.results.shop;
