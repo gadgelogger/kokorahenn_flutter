@@ -11,7 +11,6 @@ jobs:
     name: Run flutter test and analyze
     runs-on: ubuntu-latest
     steps:
-  # ref: https://github.com/marketplace/actions/flutter-action
       - name: checkout source code
         uses: actions/checkout@v4
 
