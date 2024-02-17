@@ -6,6 +6,7 @@ import 'package:kokorahenn_flutter/api/client/app_dio.dart';
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 import 'package:kokorahenn_flutter/model/response/hotpepper_gourmet_response_result.dart';
 
+import '../../env/env.dart';
 import 'location_service.dart';
 
 class ApiService {
@@ -19,11 +20,11 @@ class ApiService {
 
       // 位置情報を使用したAPIリクエスト
       final response = await hotpepperClient.fetchHotpepperInfo(
-        apiKey: 'fbf9b9be8fecf32a',
+        apiKey: Env.key,
         format: 'json',
         latitude: position.latitude,
         longitude: position.longitude,
-        range: 3,
+        range: 5,
       );
 
       final jsonData = jsonDecode(response) as Map<String, dynamic>;
