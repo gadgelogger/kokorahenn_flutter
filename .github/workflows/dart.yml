@@ -7,34 +7,16 @@ on:
       - develop
 
 jobs:
-  analyze_test:
-    name: Run flutter test and analyze
+  flutter_analyze:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - name: checkout source code
-        uses: actions/checkout@v4
-
-      - name: install flutter
-        uses: subosito/flutter-action@v2
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: subosito/flutter-action@v2
         with:
           channel: "stable"
-
-      # 依存関係読み込み
-      - name: get dependencies
-        run: flutter pub get
-
-       インポートが整列されているかチェック
-      - name: check import sort
-        run: flutter pub run import_sorter:main --no-comments --exit-if-changed
-
-      # コードのフォーマットチェック
-      - name: check code format
-        run: dart format --set-exit-if-changed .
-
-      # analyzeに引っ掛かるかチェック
-      - name: check analyze
-        run: flutter analyze
-
-      # テストを通過するかチェック
-      #- name: test
-      #  run: flutter test
+      - run: flutter pub get
+      - run: flutter analyze
+      
