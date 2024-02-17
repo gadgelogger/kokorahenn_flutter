@@ -11,10 +11,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Kokorahenn Flutter',
-      home: MainPage(),
+      theme: ThemeData(
+        colorSchemeSeed: Colors.orange,
+      ),
+      home: const MainPage(),
     );
   }
 }
