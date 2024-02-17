@@ -13,7 +13,7 @@ class ApiService {
   final HotpepperApiClient hotpepperClient = HotpepperApiClient(AppDio());
   final LocationService locationService = LocationService(); // 追加
 
-  Future<List<Shop>> fetchShopList() async {
+  Future<List<Shop>> fetchShopList({required int range}) async {
     try {
       // 位置情報の取得
       final position = await locationService.getCurrentPosition();
@@ -24,7 +24,7 @@ class ApiService {
         format: 'json',
         latitude: position.latitude,
         longitude: position.longitude,
-        range: 5,
+        range: range,
       );
 
       final jsonData = jsonDecode(response) as Map<String, dynamic>;
