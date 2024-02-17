@@ -10,10 +10,10 @@ part 'hotpepper_gourmet_response.g.dart';
 @freezed
 class HotpepperGourmetResponse with _$HotpepperGourmetResponse {
   factory HotpepperGourmetResponse({
-    required String apiVersion,
-    required int resultsAvailable,
-    required String resultsReturned,
-    required int resultsStart,
+    @Default('') String apiVersion,
+    @Default(0) int resultsAvailable,
+    @Default('') String resultsReturned,
+    @Default(0) int resultsStart,
     required List<Shop> shop,
   }) = _HotpepperGourmetResponse;
 
