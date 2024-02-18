@@ -19,7 +19,13 @@ jobs:
           channel: "stable"
       - name: Install dependencies
         run: flutter pub get
+      - name: check import sort
+        run: flutter pub run import_sorter:main --no-comments --exit-if-changed
+      - name: check code format
+        run: dart format --set-exit-if-changed .
       - name: Run build_runner
         run: dart run build_runner build -d
         env:
           KEY: ${{ secrets.KEY }}
+      - name: Analyze
+        run: flutter analyze
