@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import '../api/service/api_service.dart';
 import '../model/dto/shop.dart';
 import '../widgets/range_selector_modal.dart';
+import 'search_detail_screen.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -62,6 +63,14 @@ class SearchPageState extends State<SearchPage> {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute<SearchDetailPage>(
+                      builder: (context) => SearchDetailPage(shop: shop),
+                    ),
+                  );
+                },
               );
             },
           );
