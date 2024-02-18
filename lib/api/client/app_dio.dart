@@ -1,10 +1,8 @@
-// Flutter imports:
+// package imports
+import 'package:dio/dio.dart'; // ignore: import_of_legacy_library_into_null_safe
 
 // Flutter imports:
-import 'package:flutter/material.dart';
-
-// Package imports:
-import 'package:dio/dio.dart';
+import 'package:flutter/widgets.dart';
 
 class AppDio extends DioMixin {
   factory AppDio() {

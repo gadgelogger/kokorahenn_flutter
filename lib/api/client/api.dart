@@ -6,7 +6,9 @@
 import 'package:retrofit/retrofit.dart';
 
 // Project imports:
-import 'package:kokorahenn_flutter/api/client/app_dio.dart';
+import 'app_dio.dart';
+
+// Project imports:
 
 part 'api.g.dart';
 
