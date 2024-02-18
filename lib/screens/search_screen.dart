@@ -16,11 +16,9 @@ class SearchPage extends StatefulWidget {
 }
 
 class SearchPageState extends State<SearchPage> {
-  int _selectedRange = 3; // 初期値
+  int _selectedRange = 3;
 
   Future<List<Shop>> _fetchShopList() async {
-    // ApiServiceまたは適切なAPIクライアントクラスを使用してデータを取得
-    // この例では、選択された範囲に基づいてAPIを呼び出します
     return ApiService().fetchShopList(range: _selectedRange);
   }
 
@@ -45,9 +43,25 @@ class SearchPageState extends State<SearchPage> {
             itemBuilder: (BuildContext context, int index) {
               final shop = shops[index];
               return ListTile(
-                leading: Image.network(shop.logoImage ?? ''),
-                title: Text(shop.name ?? '名前なし'),
-                subtitle: Text(shop.address ?? '住所不明'),
+                leading: ClipRRect(
+                  borderRadius: BorderRadius.circular(100), // 丸みを帯びた角を設定
+                  child: Image.network(
+                    shop.logoImage ?? '',
+                    width: 50, // 幅を指定
+                    height: 50, // 高さを指定
+                    fit: BoxFit.cover, // アスペクト比を保ったまま、枠に合わせて全体を表示
+                  ),
+                ),
+                title: Text(
+                  shop.name ?? '名前なし',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                subtitle: Text(
+                  shop.address ?? '住所不明',
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
               );
             },
           );
@@ -58,7 +72,6 @@ class SearchPageState extends State<SearchPage> {
           RangeSelectorModal().show(context, (selectedRange) {
             setState(() {
               _selectedRange = selectedRange;
-              // 選択された範囲で検索を再実行するために状態を更新
             });
           });
         },
