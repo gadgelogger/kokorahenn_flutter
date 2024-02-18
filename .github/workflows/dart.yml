@@ -7,18 +7,19 @@ on:
       - develop
 
 jobs:
-  build:
+  flutter_analyze:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v1
+      - uses: actions/checkout@v4
         with:
-          flutter-version: '2.2.3'
+          fetch-depth: 1
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
       - name: Install dependencies
         run: flutter pub get
       - name: Run build_runner
-        run: flutter pub run build_runner build --delete-conflicting-outputs
+        run: dart run build_runner build -d
         env:
           KEY: ${{ secrets.KEY }}
