@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -77,18 +79,18 @@ class _SettingPageState extends State<SettingPage> {
                     );
                   },
                 ),
-              SettingsTile(
+              SettingsTile.navigation(
                 title: const Text('プライバシーポリシー'),
                 leading: const Icon(Icons.privacy_tip),
                 onPressed: (BuildContext context) {
-                  // ここに遷移先の画面を指定
+                  launchUrlString('https://gadgelogger.com/kokorahenn/');
                 },
               ),
-              SettingsTile(
+              SettingsTile.navigation(
                 title: const Text('お問い合わせはこちら'),
                 leading: const Icon(Icons.info),
                 onPressed: (BuildContext context) {
-                  // ここに遷移先の画面を指定
+                  launchUrlString('https://x.com/gadgelogger?s=21');
                 },
               ),
             ],
