@@ -13,7 +13,7 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Kokorahenn Flutter',
+      title: 'ここらへん',
       theme: ThemeData(
         colorSchemeSeed: Colors.orange,
       ),
