@@ -1,11 +1,16 @@
 // api_service.dart (改修版)
+
+// Dart imports:
 import 'dart:convert';
+
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:kokorahenn_flutter/api/client/api.dart';
 import 'package:kokorahenn_flutter/api/client/app_dio.dart';
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 import 'package:kokorahenn_flutter/model/response/hotpepper_gourmet_response_result.dart';
-
 import '../../env/env.dart';
 import 'location_service.dart';
 
