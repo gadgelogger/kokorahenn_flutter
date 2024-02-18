@@ -1,18 +1,14 @@
-// Dart imports:
-
 // Package imports:
-
-// Package imports:
+import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
 // Project imports:
+import '../../env/env.dart';
 import 'app_dio.dart';
-
-// Project imports:
 
 part 'api.g.dart';
 
-String apiKey = 'fbf9b9be8fecf32a';
+String apiKey = Env.key;
 
 @RestApi(baseUrl: 'http://webservice.recruit.co.jp/hotpepper/gourmet/v1')
 abstract class HotpepperApiClient {
