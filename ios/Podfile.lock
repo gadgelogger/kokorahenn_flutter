@@ -4,11 +4,14 @@ PODS:
     - Flutter
   - geolocator_apple (1.2.0):
     - Flutter
+  - package_info_plus (0.4.5):
+    - Flutter
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - geolocator_apple (from `.symlinks/plugins/geolocator_apple/ios`)
+  - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
 
 EXTERNAL SOURCES:
   Flutter:
@@ -17,11 +20,14 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_native_splash/ios"
   geolocator_apple:
     :path: ".symlinks/plugins/geolocator_apple/ios"
+  package_info_plus:
+    :path: ".symlinks/plugins/package_info_plus/ios"
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
   geolocator_apple: 9157311f654584b9bb72686c55fc02a97b73f461
+  package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
 
 PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
 
