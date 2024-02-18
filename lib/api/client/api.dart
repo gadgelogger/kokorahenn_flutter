@@ -1,7 +1,6 @@
 // Dart imports:
 
 // Package imports:
-import 'package:dio/dio.dart';
 // Project imports:
 import 'package:kokorahenn_flutter/api/client/app_dio.dart';
 import 'package:retrofit/retrofit.dart';

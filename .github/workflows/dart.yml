@@ -18,5 +18,5 @@ jobs:
         with:
           channel: "stable"
       - run: flutter pub get
+      - run: dart run build_runner build -d  
       - run: flutter analyze
-      
