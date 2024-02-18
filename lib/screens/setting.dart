@@ -1,7 +1,10 @@
 // Flutter imports:
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:settings_ui/settings_ui.dart';
+import 'package:share_plus/share_plus.dart';
 
 class SettingPage extends StatefulWidget {
   const SettingPage({super.key});
@@ -54,13 +57,26 @@ class _SettingPageState extends State<SettingPage> {
           SettingsSection(
             title: const Text('その他'),
             tiles: <SettingsTile>[
-              SettingsTile(
-                title: const Text('このアプリを他の人に勧める'),
-                leading: const Icon(Icons.share),
-                onPressed: (BuildContext context) {
-                  // ここに遷移先の画面を指定
-                },
-              ),
+              if (Platform.isIOS)
+                SettingsTile.navigation(
+                  leading: const Icon(Icons.share),
+                  title: const Text('このアプリをシェアする'),
+                  onPressed: (BuildContext context) async {
+                    await Share.share(
+                      'https://apps.apple.com/jp/app/ここらへん/id0000000000',
+                    );
+                  },
+                ),
+              if (Platform.isAndroid)
+                SettingsTile.navigation(
+                  leading: const Icon(Icons.share),
+                  title: const Text('このアプリをシェアする'),
+                  onPressed: (BuildContext context) async {
+                    await Share.share(
+                      'https://play.google.com/store/apps/details?id=com.example.kokorahen',
+                    );
+                  },
+                ),
               SettingsTile(
                 title: const Text('プライバシーポリシー'),
                 leading: const Icon(Icons.privacy_tip),
