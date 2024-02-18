@@ -1,18 +1,21 @@
 // search_page.dart
+
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Project imports:
 import '../api/service/api_service.dart';
 import '../model/dto/shop.dart';
 import '../widgets/range_selector_modal.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
-  _SearchPageState createState() => _SearchPageState();
+  SearchPageState createState() => SearchPageState();
 }
 
-class _SearchPageState extends State<SearchPage> {
+class SearchPageState extends State<SearchPage> {
   int _selectedRange = 3; // 初期値
 
   Future<List<Shop>> _fetchShopList() async {

@@ -1,4 +1,6 @@
 // location_service.dart
+
+// Package imports:
 import 'package:geolocator/geolocator.dart';
 
 class LocationService {

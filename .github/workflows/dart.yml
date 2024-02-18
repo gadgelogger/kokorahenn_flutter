@@ -17,6 +17,15 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           channel: "stable"
-      - run: flutter pub get
-      - run: flutter analyze
-      
+      - name: Install dependencies
+        run: flutter pub get
+      - name: check import sort
+        run: dart run import_sorter:main 
+      - name: check code format
+        run: dart format --set-exit-if-changed .
+      - name: Run build_runner
+        run: dart run build_runner build -d
+        env:
+          KEY: ${{ secrets.KEY }}
+      - name: Analyze
+        run: flutter analyze
