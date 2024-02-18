@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import '../model/dto/shop.dart';
 
 class SearchDetailPage extends StatelessWidget {
@@ -40,29 +43,53 @@ class SearchDetailPage extends StatelessWidget {
             ),
             const SizedBox(height: 20), // ボタンと情報の間隔
             const Divider(),
-            _buildInfoRow(Icons.map_outlined, '住所:', shop.address ?? '住所不明'),
+            _buildInfoRow(
+              Icons.map_outlined,
+              '住所:',
+              shop.address ?? '住所不明',
+            ),
             const Divider(),
 
             _buildInfoRow(
-                Icons.access_time_outlined, '営業時間:', shop.open ?? '営業時間不明'),
-            const Divider(),
-
-            _buildInfoRow(Icons.block, '閉業日:', shop.close ?? '閉業日不明'),
-            const Divider(),
-
-            _buildInfoRow(
-                Icons.category_outlined, 'ジャンル', shop.genre?.name ?? 'ジャンル不明'),
+              Icons.access_time_outlined,
+              '営業時間:',
+              shop.open ?? '営業時間不明',
+            ),
             const Divider(),
 
             _buildInfoRow(
-                Icons.restaurant_outlined, '食べ放題:', shop.freeFood ?? '食べ放題不明'),
+              Icons.block,
+              '閉業日:',
+              shop.close ?? '閉業日不明',
+            ),
             const Divider(),
 
             _buildInfoRow(
-                Icons.sports_bar_outlined, '飲み放題:', shop.freeDrink ?? '飲み放題不明'),
+              Icons.category_outlined,
+              'ジャンル',
+              shop.genre?.name ?? 'ジャンル不明',
+            ),
             const Divider(),
 
-            _buildInfoRow(Icons.air_outlined, 'コース:', shop.course ?? 'コース不明'),
+            _buildInfoRow(
+              Icons.restaurant_outlined,
+              '食べ放題:',
+              shop.freeFood ?? '食べ放題不明',
+            ),
+            const Divider(),
+
+            _buildInfoRow(
+              Icons.sports_bar_outlined,
+              '飲み放題:',
+              shop.freeDrink ?? '飲み放題不明',
+            ),
+            const Divider(),
+
+            _buildInfoRow(
+              Icons.air_outlined,
+              'コース:',
+              shop.course ?? 'コース不明',
+            ),
             const Divider(),
 
             _buildInfoRow(
@@ -73,30 +100,52 @@ class SearchDetailPage extends StatelessWidget {
             const Divider(),
 
             _buildInfoRow(
-                Icons.smoking_rooms_outlined, '禁煙:', shop.nonSmoking ?? '禁煙不明'),
-            const Divider(),
-
-            _buildInfoRow(Icons.payments_outlined, '平均予算:',
-                shop.budget?.average ?? '平均予算不明'),
-            const Divider(),
-
-            _buildInfoRow(
-                Icons.payment_outlined, 'カード決済:', shop.card ?? 'カード決済不明'),
+              Icons.smoking_rooms_outlined,
+              '禁煙:',
+              shop.nonSmoking ?? '禁煙不明',
+            ),
             const Divider(),
 
             _buildInfoRow(
-                Icons.no_crash_outlined, '駐車場:', shop.parking ?? '駐車場不明'),
+              Icons.payments_outlined,
+              '平均予算:',
+              shop.budget?.average ?? '平均予算不明',
+            ),
             const Divider(),
 
-            _buildInfoRow(Icons.wheelchair_pickup, 'バリアフリー:',
-                shop.barrierFree ?? 'バリアフリー不明'),
+            _buildInfoRow(
+              Icons.payment_outlined,
+              'カード決済:',
+              shop.card ?? 'カード決済不明',
+            ),
             const Divider(),
 
-            _buildInfoRow(Icons.access_time_outlined, 'その他設備:',
-                shop.otherMemo ?? 'その他設備不明'),
+            _buildInfoRow(
+              Icons.no_crash_outlined,
+              '駐車場:',
+              shop.parking ?? '駐車場不明',
+            ),
             const Divider(),
 
-            _buildInfoRow(Icons.block, '備考:', shop.shopDetailMemo ?? '備考不明'),
+            _buildInfoRow(
+              Icons.wheelchair_pickup,
+              'バリアフリー:',
+              shop.barrierFree ?? 'バリアフリー不明',
+            ),
+            const Divider(),
+
+            _buildInfoRow(
+              Icons.access_time_outlined,
+              'その他設備:',
+              shop.otherMemo ?? 'その他設備不明',
+            ),
+            const Divider(),
+
+            _buildInfoRow(
+              Icons.block,
+              '備考:',
+              shop.shopDetailMemo ?? '備考不明',
+            ),
             const Divider(),
           ],
         ),
