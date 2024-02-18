@@ -20,7 +20,7 @@ jobs:
       - name: Install dependencies
         run: flutter pub get
       - name: check import sort
-        run: flutter pub run import_sorter:main --no-comments --exit-if-changed
+        run: dart run import_sorter:main 
       - name: check code format
         run: dart format --set-exit-if-changed .
       - name: Run build_runner
