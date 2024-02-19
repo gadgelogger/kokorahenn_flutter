@@ -12,6 +12,7 @@ dependencies:
   envied: ^0.5.3
   flutter:
     sdk: flutter
+  flutter_riverpod: ^2.4.10
   freezed: ^2.4.7
   freezed_annotation: ^2.4.1
   geolocator: ^11.0.0

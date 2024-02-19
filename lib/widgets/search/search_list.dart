@@ -1,4 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Project imports:
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 import 'package:kokorahenn_flutter/screens/search_detail_screen.dart';
 import 'package:kokorahenn_flutter/widgets/search/empty_message.dart';
