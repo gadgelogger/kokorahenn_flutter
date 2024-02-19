@@ -1,5 +1,3 @@
-// ignoreForFile: non_constant_identifierNames
-
 // Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -9,57 +7,29 @@ part 'shop.g.dart';
 @freezed
 class Shop with _$Shop {
   factory Shop({
-    String? id,
     String? name,
     String? logoImage,
-    String? nameKana,
     String? address,
-    String? stationName,
-    int? ktaiCoupon,
-    Area? largeServiceArea,
-    Area? serviceArea,
-    Area? largeArea,
-    Area? middleArea,
-    Area? smallArea,
     double? lat,
     double? lng,
     Genre? genre,
-    Genre? subGenre,
-    Budget? budget,
     int? capacity,
     String? access,
-    String? mobileAccess,
     Urls? urls,
     Photo? photo,
     String? open,
     String? close,
-    int? partyapacity,
     String? otherMemo,
     String? shopDetailMemo,
-    String? budgetMemo,
-    String? wedding,
     String? course,
     String? freeDrink,
     String? freeFood,
-    String? privateRoom,
-    String? horigotatsu,
-    String? tatami,
     String? card,
+    Budget? budget,
     String? nonSmoking,
-    String? charter,
     String? parking,
     String? barrierFree,
-    String? show,
-    String? karaoke,
-    String? band,
-    String? tv,
     String? lunch,
-    String? midnight,
-    String? english,
-    String? pet,
-    String? child,
-    String? wifi,
-    CouponUrls? couponUrls,
   }) = _Shop;
 
   factory Shop.fromJson(Map<String, dynamic> json) => _$ShopFromJson(json);
@@ -109,7 +79,6 @@ class Urls with _$Urls {
 class Photo with _$Photo {
   factory Photo({
     Pc? pc,
-    Mobile? mobile,
   }) = _Photo;
 
   factory Photo.fromJson(Map<String, dynamic> json) => _$PhotoFromJson(json);
@@ -124,25 +93,4 @@ class Pc with _$Pc {
   }) = _Pc;
 
   factory Pc.fromJson(Map<String, dynamic> json) => _$PcFromJson(json);
-}
-
-@freezed
-class Mobile with _$Mobile {
-  factory Mobile({
-    String? l,
-    String? s,
-  }) = _Mobile;
-
-  factory Mobile.fromJson(Map<String, dynamic> json) => _$MobileFromJson(json);
-}
-
-@freezed
-class CouponUrls with _$CouponUrls {
-  factory CouponUrls({
-    String? pc,
-    String? sp,
-  }) = _CouponUrls;
-
-  factory CouponUrls.fromJson(Map<String, dynamic> json) =>
-      _$CouponUrlsFromJson(json);
 }

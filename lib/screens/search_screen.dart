@@ -27,7 +27,7 @@ class SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('周りにある施設一覧'),
+        title: const Text('周りにあるレストラン一覧'),
       ),
       body: FutureBuilder<List<Shop>>(
         future: _fetchShopList(),
@@ -35,9 +35,51 @@ class SearchPageState extends State<SearchPage> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
-          if (!snapshot.hasData) {
-            return const Center(child: Text('データがありません'));
+          if (snapshot.data?.isEmpty ?? true) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 200,
+                    height: 200,
+                    child: Image.asset('assets/images/found.gif'),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  const Text(
+                    '近くにレストランが見つかりませんでした\n範囲を広げて再度検索してみてください',
+                    style: TextStyle(fontSize: 18),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            );
           }
+          if (snapshot.hasError) {
+            return Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 200,
+                    height: 200,
+                    child: Image.asset('assets/images/error.gif'),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  const Text(
+                    'エラーが発生しました。',
+                    style: TextStyle(fontSize: 18),
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+              ),
+            );
+          }
+
           final shops = snapshot.data!;
           return ListView.builder(
             itemCount: shops.length,
@@ -45,12 +87,12 @@ class SearchPageState extends State<SearchPage> {
               final shop = shops[index];
               return ListTile(
                 leading: ClipRRect(
-                  borderRadius: BorderRadius.circular(100), // 丸みを帯びた角を設定
+                  borderRadius: BorderRadius.circular(100),
                   child: Image.network(
                     shop.logoImage ?? '',
-                    width: 50, // 幅を指定
-                    height: 50, // 高さを指定
-                    fit: BoxFit.cover, // アスペクト比を保ったまま、枠に合わせて全体を表示
+                    width: 50,
+                    height: 50,
+                    fit: BoxFit.cover,
                   ),
                 ),
                 title: Text(
@@ -82,6 +124,7 @@ class SearchPageState extends State<SearchPage> {
             setState(() {
               _selectedRange = selectedRange;
             });
+            _fetchShopList();
           });
         },
         child: const Icon(Icons.filter_list),
