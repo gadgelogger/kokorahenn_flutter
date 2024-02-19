@@ -7,7 +7,7 @@ import '../widgets/search/range_selector_modal.dart';
 import '../widgets/search/search_list.dart';
 
 class SearchPage extends StatefulWidget {
-  const SearchPage({Key? key}) : super(key: key);
+  const SearchPage({super.key});
 
   @override
   SearchPageState createState() => SearchPageState();

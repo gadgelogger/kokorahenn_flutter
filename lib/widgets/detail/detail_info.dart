@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
 class DetailInfo extends StatelessWidget {
-  const DetailInfo(
-      {super.key, required this.icon, required this.info, required this.text});
+  const DetailInfo({
+    super.key,
+    required this.icon,
+    required this.info,
+    required this.text,
+  });
   final IconData icon;
   final String info;
   final String text;
