@@ -9,11 +9,10 @@ class RangeSelectorModal {
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
-        // `RangeSelector`ウィジェットを使用
         return RangeSelector(
           onRangeSelected: (selectedRange) {
-            Navigator.pop(context); // モーダルを閉じる
             onRangeSelected(selectedRange);
+            Navigator.pop(context);
           },
         );
       },
