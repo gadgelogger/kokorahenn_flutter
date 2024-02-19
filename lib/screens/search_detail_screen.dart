@@ -20,25 +20,24 @@ class SearchDetailPage extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             ClipRRect(
-              borderRadius: BorderRadius.circular(100), // 角の丸みを調整
+              borderRadius: BorderRadius.circular(100),
               child: Image.network(
                 shop.photo?.pc?.l ?? '',
-                width: 200, // 幅を調整
-                height: 200, // 高さを調整
-                fit: BoxFit.cover, // 画像をアスペクト比を保ってフィットさせる
+                width: 200,
+                height: 200,
+                fit: BoxFit.cover,
                 errorBuilder: (context, error, stackTrace) {
-                  // 読み込みエラー時に表示するウィジェット
                   return Container(
                     width: 200,
                     height: 200,
                     decoration: BoxDecoration(
-                      color: Colors.grey[200], // エラー時はグレーの背景を表示
+                      color: Colors.grey[200],
                       borderRadius: BorderRadius.circular(100),
                     ),
                     child: Icon(
-                      Icons.broken_image, // 壊れた画像のアイコンを表示
-                      size: 100, // アイコンのサイズを指定
-                      color: Colors.grey[500], // アイコンの色を指定
+                      Icons.broken_image,
+                      size: 100,
+                      color: Colors.grey[500],
                     ),
                   );
                 },

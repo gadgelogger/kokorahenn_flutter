@@ -30,7 +30,6 @@ class SearchPageState extends State<SearchPage> {
           RangeSelectorModal().show(context, (selectedRange) {
             setState(() {
               _selectedRange = selectedRange;
-              // ユーザーが選択した検索範囲を更新し、店舗リストを再取得する
             });
             _fetchShopList();
           });
@@ -41,7 +40,6 @@ class SearchPageState extends State<SearchPage> {
   }
 
   Future<List<Shop>> _fetchShopList() async {
-    // ApiServiceを使ってAPIから店舗リストを取得する
     return ApiService().fetchShopList(range: _selectedRange);
   }
 }
