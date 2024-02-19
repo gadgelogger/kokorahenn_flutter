@@ -1,5 +1,7 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
 
+// Project imports:
 import '../../model/dto/shop.dart';
 
 class SearchTile extends StatelessWidget {

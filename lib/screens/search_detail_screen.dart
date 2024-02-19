@@ -1,9 +1,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:kokorahenn_flutter/widgets/detail/detail_buttons.dart';
-import 'package:kokorahenn_flutter/widgets/detail/detail_info.dart';
 
 // Project imports:
+import 'package:kokorahenn_flutter/widgets/detail/detail_buttons.dart';
+import 'package:kokorahenn_flutter/widgets/detail/detail_info.dart';
 import '../model/dto/shop.dart';
 import '../widgets/detail/detail_image.dart';
 

@@ -3,14 +3,15 @@ import 'dart:io';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Package imports:
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 
+// Project imports:
 import '../theme/theme_mode_provider.dart';
 
 class SettingPage extends ConsumerWidget {
@@ -45,8 +46,7 @@ class SettingPage extends ConsumerWidget {
                           '不明',
                     ),
                     onPressed: (_) async {
-                      final ThemeMode? selectedThemeMode =
-                          await showDialog<ThemeMode>(
+                      final selectedThemeMode = await showDialog<ThemeMode>(
                         context: context,
                         builder: (BuildContext context) {
                           return SimpleDialog(
@@ -75,7 +75,7 @@ class SettingPage extends ConsumerWidget {
                         await toggle();
                       }
                     },
-                  )
+                  ),
                 ],
               ),
               SettingsSection(

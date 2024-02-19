@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+
 // Project imports:
 import '../api/service/api_service.dart';
 import '../model/dto/shop.dart';
