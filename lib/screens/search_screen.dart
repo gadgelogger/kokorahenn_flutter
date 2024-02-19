@@ -27,7 +27,7 @@ class SearchPageState extends State<SearchPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('周りにある施設一覧'),
+        title: const Text('周りにあるレストラン一覧'),
       ),
       body: FutureBuilder<List<Shop>>(
         future: _fetchShopList(),
@@ -35,7 +35,7 @@ class SearchPageState extends State<SearchPage> {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
-          if (snapshot.hasData) {
+          if (snapshot.data?.isEmpty ?? true) {
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -49,7 +49,7 @@ class SearchPageState extends State<SearchPage> {
                     height: 50,
                   ),
                   const Text(
-                    '近くに施設が見つかりませんでした\n範囲を広げて再度検索してみてください',
+                    '近くにレストランが見つかりませんでした\n範囲を広げて再度検索してみてください',
                     style: TextStyle(fontSize: 18),
                     textAlign: TextAlign.center,
                   ),
