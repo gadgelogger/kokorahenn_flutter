@@ -1,6 +1,8 @@
 // Flutter imports:
-import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
+import 'package:expansion_tile_card/expansion_tile_card.dart';
 
 // Project imports:
 import '../../model/dto/shop.dart';

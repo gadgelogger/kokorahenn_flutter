@@ -1,7 +1,10 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher_string.dart';
-import 'package:map_launcher/map_launcher.dart';
+
+// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:map_launcher/map_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class DetailButtons extends StatelessWidget {
   const DetailButtons({
