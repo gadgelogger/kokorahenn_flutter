@@ -16,7 +16,7 @@ import 'location_service.dart';
 
 class ApiService {
   final HotpepperApiClient hotpepperClient = HotpepperApiClient(AppDio());
-  final LocationService locationService = LocationService(); // 追加
+  final LocationService locationService = LocationService();
 
   Future<List<Shop>> fetchShopList({required int range}) async {
     try {
@@ -30,6 +30,8 @@ class ApiService {
         latitude: position.latitude,
         longitude: position.longitude,
         range: range,
+        count: 20,
+        start: 1,
       );
 
       final jsonData = jsonDecode(response) as Map<String, dynamic>;
