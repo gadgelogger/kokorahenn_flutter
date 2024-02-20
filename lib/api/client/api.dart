@@ -22,5 +22,7 @@ abstract class HotpepperApiClient {
     @Query('lat') required double latitude,
     @Query('lng') required double longitude,
     @Query('range') required int range,
+    @Query('count') required int count,
+    @Query('start') required int start,
   });
 }
