@@ -13,7 +13,7 @@ class Shop with _$Shop {
     double? lat,
     double? lng,
     Genre? genre,
-    int? capacity,
+    @JsonKey(fromJson: _stringToInt) int? capacity,
     String? access,
     Urls? urls,
     Photo? photo,
@@ -93,4 +93,14 @@ class Pc with _$Pc {
   }) = _Pc;
 
   factory Pc.fromJson(Map<String, dynamic> json) => _$PcFromJson(json);
+}
+
+int? _stringToInt(dynamic value) {
+  if (value is int) {
+    return value;
+  }
+  if (value is String && value.isNotEmpty) {
+    return int.tryParse(value);
+  }
+  return null;
 }
