@@ -46,7 +46,10 @@ class DetailButtons extends StatelessWidget {
   }
 
   Future<void> _launchMapApp(
-      BuildContext context, double lat, double lng) async {
+    BuildContext context,
+    double lat,
+    double lng,
+  ) async {
     final availableMaps = await MapLauncher.installedMaps;
     if (!context.mounted) {
       return;
@@ -60,7 +63,7 @@ class DetailButtons extends StatelessWidget {
             child: SingleChildScrollView(
               child: Wrap(
                 children: <Widget>[
-                  for (var map in availableMaps)
+                  for (final map in availableMaps)
                     ListTile(
                       onTap: () => map.showMarker(
                         coords: Coords(lat, lng),

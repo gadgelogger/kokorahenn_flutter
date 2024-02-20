@@ -1,10 +1,6 @@
-// Flutter imports:
+import 'package:expansion_tile_card/expansion_tile_card.dart';
 import 'package:flutter/material.dart';
 
-// Package imports:
-import 'package:expansion_tile_card/expansion_tile_card.dart';
-
-// Project imports:
 import '../../model/dto/shop.dart';
 
 class SearchTile extends StatelessWidget {
@@ -44,8 +40,8 @@ class SearchTile extends StatelessWidget {
         ),
         children: <Widget>[
           const Divider(
-            thickness: 1.0,
-            height: 1.0,
+            thickness: 1,
+            height: 1,
           ),
           Padding(
             padding: const EdgeInsets.all(10),
@@ -96,7 +92,9 @@ class SearchTile extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     ElevatedButton(
-                        onPressed: onTap, child: const Text('お店の詳細を見る')),
+                      onPressed: onTap,
+                      child: const Text('お店の詳細を見る'),
+                    ),
                   ],
                 ),
               ],
