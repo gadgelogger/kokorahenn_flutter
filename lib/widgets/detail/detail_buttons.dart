@@ -1,8 +1,19 @@
-// Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+import 'package:map_launcher/map_launcher.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class DetailButtons extends StatelessWidget {
-  const DetailButtons({super.key});
+  const DetailButtons({
+    super.key,
+    required this.latitude,
+    required this.longitude,
+    this.websiteUrl,
+  });
+
+  final double latitude;
+  final double longitude;
+  final String? websiteUrl;
 
   @override
   Widget build(BuildContext context) {
@@ -12,19 +23,79 @@ class DetailButtons extends StatelessWidget {
         IconButton.filledTonal(
           icon: const Icon(Icons.map_outlined),
           padding: const EdgeInsets.all(20),
-          onPressed: () {},
+          onPressed: () => _launchMapApp(context, latitude, longitude),
         ),
+        if (websiteUrl != null)
+          IconButton.filledTonal(
+            icon: const Icon(Icons.travel_explore_outlined),
+            padding: const EdgeInsets.all(20),
+            onPressed: () => _launchURL(websiteUrl!),
+          ),
         IconButton.filledTonal(
-          icon: const Icon(Icons.travel_explore_outlined),
-          padding: const EdgeInsets.all(20),
-          onPressed: () {},
-        ),
-        IconButton.filledTonal(
-          icon: const Icon(Icons.search_outlined),
+          icon: const Icon(Icons.search),
           padding: const EdgeInsets.all(20),
           onPressed: () {},
         ),
       ],
     );
+  }
+
+  Future<void> _launchMapApp(
+      BuildContext context, double lat, double lng) async {
+    final availableMaps = await MapLauncher.installedMaps;
+    if (!context.mounted) {
+      return;
+    }
+
+    if (availableMaps.isNotEmpty) {
+      await showModalBottomSheet<void>(
+        context: context,
+        builder: (BuildContext context) {
+          return SafeArea(
+            child: SingleChildScrollView(
+              child: Wrap(
+                children: <Widget>[
+                  for (var map in availableMaps)
+                    ListTile(
+                      onTap: () => map.showMarker(
+                        coords: Coords(lat, lng),
+                        title: 'Destination',
+                      ),
+                      title: Text(map.mapName),
+                      leading: SvgPicture.asset(
+                        map.icon,
+                        height: 30,
+                        width: 30,
+                      ),
+                    ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+    } else {
+      final url =
+          'https://www.google.com/maps/dir/?api=1&destination=$lat,$lng';
+      if (await canLaunchUrlString(url)) {
+        await launchUrlString(url);
+      } else {
+        if (!context.mounted) {
+          return;
+        }
+
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Map application is not available.')),
+        );
+      }
+    }
+  }
+
+  Future<void> _launchURL(String urlString) async {
+    if (await canLaunchUrlString(urlString)) {
+      await launchUrlString(urlString);
+    } else {
+      throw Exception('Could not launch $urlString');
+    }
   }
 }

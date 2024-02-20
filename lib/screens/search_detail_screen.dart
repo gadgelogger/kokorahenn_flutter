@@ -24,7 +24,11 @@ class SearchDetailPage extends StatelessWidget {
             const SizedBox(height: 20),
             const Divider(),
             const SizedBox(height: 20),
-            const DetailButtons(),
+            DetailButtons(
+              latitude: shop.lat ?? 0,
+              longitude: shop.lng ?? 0,
+              websiteUrl: shop.urls?.pc ?? '',
+            ),
             const SizedBox(height: 20),
             const Divider(),
             DetailInfo(
