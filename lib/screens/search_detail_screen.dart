@@ -28,6 +28,7 @@ class SearchDetailPage extends StatelessWidget {
               latitude: shop.lat ?? 0,
               longitude: shop.lng ?? 0,
               websiteUrl: shop.urls?.pc ?? '',
+              shopName: shop.name ?? '',
             ),
             const SizedBox(height: 20),
             const Divider(),

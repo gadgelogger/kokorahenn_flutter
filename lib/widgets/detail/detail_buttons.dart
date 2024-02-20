@@ -8,12 +8,14 @@ class DetailButtons extends StatelessWidget {
     super.key,
     required this.latitude,
     required this.longitude,
-    this.websiteUrl,
+    required this.websiteUrl,
+    required this.shopName,
   });
 
   final double latitude;
   final double longitude;
   final String? websiteUrl;
+  final String shopName;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class DetailButtons extends StatelessWidget {
         IconButton.filledTonal(
           icon: const Icon(Icons.search),
           padding: const EdgeInsets.all(20),
-          onPressed: () {},
+          onPressed: () => _launchGoogleSearch(shopName), // Google検索を実行
         ),
       ],
     );
@@ -97,5 +99,15 @@ class DetailButtons extends StatelessWidget {
     } else {
       throw Exception('Could not launch $urlString');
     }
+  }
+}
+
+Future<void> _launchGoogleSearch(String shopName) async {
+  final query = Uri.encodeComponent(shopName); // クエリパラメータのエンコード
+  final url = 'https://www.google.com/search?q=$query';
+  if (await canLaunchUrlString(url)) {
+    await launchUrlString(url);
+  } else {
+    throw Exception('Could not launch $url');
   }
 }
