@@ -46,34 +46,7 @@ class SettingPage extends ConsumerWidget {
                           '不明',
                     ),
                     onPressed: (_) async {
-                      final selectedThemeMode = await showDialog<ThemeMode>(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return SimpleDialog(
-                            title: const Text('テーマを選択'),
-                            children: <Widget>[
-                              SimpleDialogOption(
-                                onPressed: () =>
-                                    Navigator.pop(context, ThemeMode.system),
-                                child: const Text('システム設定に従う'),
-                              ),
-                              SimpleDialogOption(
-                                onPressed: () =>
-                                    Navigator.pop(context, ThemeMode.light),
-                                child: const Text('ライトモード'),
-                              ),
-                              SimpleDialogOption(
-                                onPressed: () =>
-                                    Navigator.pop(context, ThemeMode.dark),
-                                child: const Text('ダークモード'),
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                      if (selectedThemeMode != null) {
-                        await toggle();
-                      }
+                      await toggle();
                     },
                   ),
                 ],
