@@ -13,6 +13,7 @@ import 'package:url_launcher/url_launcher_string.dart';
 
 // Project imports:
 import '../theme/theme_mode_provider.dart';
+import 'tutorial_screen.dart';
 
 class SettingPage extends ConsumerWidget {
   const SettingPage({super.key});
@@ -81,8 +82,19 @@ class SettingPage extends ConsumerWidget {
                 ],
               ),
               SettingsSection(
-                title: const Text('このアプリについて'),
+                title: const Text('その他情報'),
                 tiles: <SettingsTile>[
+                  SettingsTile.navigation(
+                    title: const Text('このアプリについて'),
+                    leading: const Icon(Icons.star_border_outlined),
+                    onPressed: (_) {
+                      Navigator.of(context).push<void>(
+                        MaterialPageRoute(
+                          builder: (context) => TutorialScreen(),
+                        ),
+                      );
+                    },
+                  ),
                   SettingsTile.navigation(
                     title: const Text('ライセンス'),
                     leading: const Icon(Icons.terminal),
