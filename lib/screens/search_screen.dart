@@ -1,8 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 
 // Project imports:
+import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 import '../api/service/api_service.dart';
 import '../model/dto/shop.dart';
 import '../widgets/search/range_selector_modal.dart';

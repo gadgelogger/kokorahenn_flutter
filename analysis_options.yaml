@@ -4,6 +4,7 @@ include: package:pedantic_mono/analysis_options.yaml
 linter:
   rules:
     - require_trailing_commas
+    - always_use_package_imports: true
 analyzer:
   exclude:
     - "**/*.g.dart"

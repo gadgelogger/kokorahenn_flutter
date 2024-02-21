@@ -1,8 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 
 // Project imports:
+import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 import 'package:kokorahenn_flutter/widgets/detail/detail_buttons.dart';
 import 'package:kokorahenn_flutter/widgets/detail/detail_info.dart';
 import '../model/dto/shop.dart';

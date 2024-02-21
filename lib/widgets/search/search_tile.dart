@@ -3,9 +3,9 @@ import 'package:expansion_tile_card/expansion_tile_card.dart'; // import_sorter:
 
 // Flutter imports:
 import 'package:flutter/material.dart';
-import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 
 // Project imports:
+import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 
 class SearchTile extends StatelessWidget {

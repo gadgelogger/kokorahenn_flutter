@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+// Project imports:
 import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 
 class BottomNavigation extends StatelessWidget {
@@ -21,7 +22,9 @@ class BottomNavigation extends StatelessWidget {
       items: [
         BottomNavigationBarItem(icon: const Icon(Icons.home), label: home),
         BottomNavigationBarItem(
-            icon: const Icon(Icons.settings), label: setting),
+          icon: const Icon(Icons.settings),
+          label: setting,
+        ),
       ],
     );
   }

@@ -1,9 +1,12 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+// Package imports:
 import 'package:flutter_overboard/flutter_overboard.dart';
+// Project imports:
 import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 
 class TutorialScreen extends StatelessWidget {
-  TutorialScreen({super.key});
+  const TutorialScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
