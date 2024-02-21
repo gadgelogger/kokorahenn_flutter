@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Project imports:
+import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 import '../api/service/api_service.dart';
 import '../model/dto/shop.dart';
 import '../widgets/search/range_selector_modal.dart';
@@ -16,12 +17,12 @@ class SearchPage extends StatefulWidget {
 
 class SearchPageState extends State<SearchPage> {
   int _selectedRange = 3;
-
+  final searchPage = t.mainScreen;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('周りにあるレストラン一覧'),
+        title: Text(searchPage.title),
       ),
       body: SearchList(
         shopsFuture: _fetchShopList(),

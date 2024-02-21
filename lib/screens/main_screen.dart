@@ -2,12 +2,10 @@
 
 // Flutter imports:
 import 'package:flutter/material.dart';
-
 // Project imports:
 import 'package:kokorahenn_flutter/screens/setting_screen.dart';
 import 'package:kokorahenn_flutter/screens/tutorial_screen.dart';
 import 'package:kokorahenn_flutter/widgets/bottom_navigation.dart';
-
 // Package imports:
 import 'package:shared_preferences/shared_preferences.dart'; //import_sorter:keep
 
@@ -24,8 +22,8 @@ class MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   bool _isFirstLaunch = true;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    SearchPage(),
+  static final List<Widget> _widgetOptions = <Widget>[
+    const SearchPage(),
     SettingPage(),
   ];
 
@@ -45,7 +43,7 @@ class MainPageState extends State<MainPage> {
       }
 
       await Navigator.of(context).push<TutorialScreen>(
-        MaterialPageRoute(builder: (_) => TutorialScreen()),
+        MaterialPageRoute(builder: (_) => const TutorialScreen()),
       );
       await prefs.setBool('isFirstLaunch', false);
     }

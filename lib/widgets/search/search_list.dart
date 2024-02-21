@@ -1,6 +1,5 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-
 // Project imports:
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 import 'package:kokorahenn_flutter/screens/search_detail_screen.dart';
@@ -22,10 +21,10 @@ class SearchList extends StatelessWidget {
           return const LoadingIndicator();
         }
         if (snapshot.data?.isEmpty ?? true) {
-          return const EmptyMessage();
+          return EmptyMessage();
         }
         if (snapshot.hasError) {
-          return const ErrorMessage();
+          return ErrorMessage();
         }
 
         final shops = snapshot.data!;

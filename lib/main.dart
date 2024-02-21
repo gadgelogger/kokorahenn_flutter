@@ -5,13 +5,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // Project imports:
+import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 import 'package:kokorahenn_flutter/screens/main_screen.dart';
 import 'package:kokorahenn_flutter/theme/share_preferences_instance.dart';
 import 'package:kokorahenn_flutter/theme/theme_mode_provider.dart';
 
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesInstance.initialize();
+  LocaleSettings.useDeviceLocale();
 
   runApp(
     const ProviderScope(

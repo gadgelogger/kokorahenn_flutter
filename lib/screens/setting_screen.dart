@@ -3,20 +3,21 @@ import 'dart:io';
 
 // Flutter imports:
 import 'package:flutter/material.dart';
-
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+// Project imports:
+import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
-// Project imports:
 import '../theme/theme_mode_provider.dart';
 import 'tutorial_screen.dart';
 
 class SettingPage extends ConsumerWidget {
-  const SettingPage({super.key});
+  SettingPage({super.key});
+  final setting = t.settingsScreen;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,7 +25,7 @@ class SettingPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('設定'),
+        title: Text(setting.title),
       ),
       body: FutureBuilder<PackageInfo>(
         future: PackageInfo.fromPlatform(),
@@ -33,18 +34,18 @@ class SettingPage extends ConsumerWidget {
           return SettingsList(
             sections: [
               SettingsSection(
-                title: const Text('配色'),
+                title: Text(setting.themeTitle),
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
-                    title: const Text('テーマ'),
+                    title: Text(setting.theme),
                     leading: const Icon(Icons.color_lens),
                     trailing: Text(
                       {
-                            ThemeMode.light: 'ライトモード',
-                            ThemeMode.dark: 'ダークモード',
-                            ThemeMode.system: 'システム設定に従う',
+                            ThemeMode.light: setting.themeLight,
+                            ThemeMode.dark: setting.themeDark,
+                            ThemeMode.system: setting.themeSystem,
                           }[ref.watch(themeModeProvider)] ??
-                          '不明',
+                          setting.error,
                     ),
                     onPressed: (_) async {
                       await toggle();
@@ -53,11 +54,11 @@ class SettingPage extends ConsumerWidget {
                 ],
               ),
               SettingsSection(
-                title: const Text('その他'),
+                title: Text(setting.othersTitle),
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
                     leading: const Icon(Icons.share),
-                    title: const Text('このアプリをシェアする'),
+                    title: Text(setting.share),
                     onPressed: (_) async {
                       final url = Platform.isIOS
                           ? 'https://apps.apple.com/jp/app/ここらへん/id0000000000'
@@ -66,14 +67,14 @@ class SettingPage extends ConsumerWidget {
                     },
                   ),
                   SettingsTile.navigation(
-                    title: const Text('プライバシーポリシー'),
+                    title: Text(setting.privacy),
                     leading: const Icon(Icons.privacy_tip),
                     onPressed: (BuildContext context) {
                       launchUrlString('https://gadgelogger.com/kokorahenn/');
                     },
                   ),
                   SettingsTile.navigation(
-                    title: const Text('お問い合わせはこちら'),
+                    title: Text(setting.contact),
                     leading: const Icon(Icons.info),
                     onPressed: (BuildContext context) {
                       launchUrlString('https://x.com/gadgelogger?s=21');
@@ -82,32 +83,32 @@ class SettingPage extends ConsumerWidget {
                 ],
               ),
               SettingsSection(
-                title: const Text('その他情報'),
+                title: Text(setting.info),
                 tiles: <SettingsTile>[
                   SettingsTile.navigation(
-                    title: const Text('このアプリについて'),
+                    title: Text(setting.tutorial),
                     leading: const Icon(Icons.star_border_outlined),
                     onPressed: (_) {
                       Navigator.of(context).push<void>(
                         MaterialPageRoute(
-                          builder: (context) => TutorialScreen(),
+                          builder: (context) => const TutorialScreen(),
                         ),
                       );
                     },
                   ),
                   SettingsTile.navigation(
-                    title: const Text('ライセンス'),
+                    title: Text(setting.license),
                     leading: const Icon(Icons.terminal),
                     onPressed: (_) => showLicensePage(
                       context: context,
-                      applicationName: packageInfo?.appName ?? '不明',
-                      applicationVersion: packageInfo?.version ?? '不明',
+                      applicationName: packageInfo?.appName ?? setting.error,
+                      applicationVersion: packageInfo?.version ?? setting.error,
                     ),
                   ),
                   SettingsTile(
-                    title: const Text('バージョン情報'),
+                    title: Text(setting.version),
                     leading: const Icon(Icons.info_outline),
-                    value: Text(packageInfo?.version ?? '不明'),
+                    value: Text(packageInfo?.version ?? setting.error),
                   ),
                 ],
               ),
