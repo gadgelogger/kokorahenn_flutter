@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:kokorahenn_flutter/screens/main_screen.dart';
 
 // Project imports:
 import 'package:kokorahenn_flutter/theme/share_preferences_instance.dart';
 import 'package:kokorahenn_flutter/theme/theme_mode_provider.dart';
-import 'screens/main_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

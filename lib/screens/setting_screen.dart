@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:kokorahenn_flutter/screens/tutorial_screen.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:share_plus/share_plus.dart';
@@ -81,8 +82,19 @@ class SettingPage extends ConsumerWidget {
                 ],
               ),
               SettingsSection(
-                title: const Text('このアプリについて'),
+                title: const Text('その他情報'),
                 tiles: <SettingsTile>[
+                  SettingsTile.navigation(
+                    title: const Text('このアプリについて'),
+                    leading: const Icon(Icons.star_border_outlined),
+                    onPressed: (_) {
+                      Navigator.of(context).push<void>(
+                        MaterialPageRoute(
+                          builder: (context) => TutorialScreen(),
+                        ),
+                      );
+                    },
+                  ),
                   SettingsTile.navigation(
                     title: const Text('ライセンス'),
                     leading: const Icon(Icons.terminal),

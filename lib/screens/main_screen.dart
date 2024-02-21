@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // Project imports:
 import '../widgets/bottom_navigation.dart';
 import 'search_screen.dart';
-import 'setting.dart';
+import 'setting_screen.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
