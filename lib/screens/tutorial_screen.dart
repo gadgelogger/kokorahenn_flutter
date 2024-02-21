@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_overboard/flutter_overboard.dart';
-import 'package:kokorahenn_flutter/screens/main_screen.dart';
 
 class TutorialScreen extends StatelessWidget {
   TutorialScreen({super.key});
