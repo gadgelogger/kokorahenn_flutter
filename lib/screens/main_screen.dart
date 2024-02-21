@@ -44,11 +44,9 @@ class MainPageState extends State<MainPage> {
         return;
       }
 
-      // チュートリアルを表示
       await Navigator.of(context).push<TutorialScreen>(
         MaterialPageRoute(builder: (_) => TutorialScreen()),
       );
-      // チュートリアル表示後、フラグを更新
       await prefs.setBool('isFirstLaunch', false);
     }
 
@@ -65,7 +63,6 @@ class MainPageState extends State<MainPage> {
 
   @override
   Widget build(BuildContext context) {
-    // 初回起動チェック中はローディングインジケータを表示
     if (_isFirstLaunch) {
       return const Scaffold(
         body: Center(child: CircularProgressIndicator()),
