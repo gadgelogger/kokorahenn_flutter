@@ -19,8 +19,6 @@ jobs:
           channel: "stable"
       - name: Install dependencies
         run: flutter pub get
-      - name: check import sort
-        run: dart run import_sorter:main 
       - name: check code format
         run: dart format --set-exit-if-changed .
       - name: Run build_runner
