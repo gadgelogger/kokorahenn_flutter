@@ -22,10 +22,10 @@ class SearchList extends StatelessWidget {
           return const LoadingIndicator();
         }
         if (snapshot.data?.isEmpty ?? true) {
-          return const EmptyMessage();
+          return EmptyMessage();
         }
         if (snapshot.hasError) {
-          return const ErrorMessage();
+          return ErrorMessage();
         }
 
         final shops = snapshot.data!;

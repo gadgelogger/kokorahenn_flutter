@@ -3,19 +3,20 @@ import 'package:expansion_tile_card/expansion_tile_card.dart'; // import_sorter:
 
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 
 // Project imports:
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 
 class SearchTile extends StatelessWidget {
-  const SearchTile({
+  SearchTile({
     super.key,
     required this.shop,
     required this.onTap,
   });
   final Shop shop;
   final VoidCallback onTap;
-
+  final button = t.mainScreen.button;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -97,7 +98,7 @@ class SearchTile extends StatelessWidget {
                   children: [
                     ElevatedButton(
                       onPressed: onTap,
-                      child: const Text('お店の詳細を見る'),
+                      child: Text(button),
                     ),
                   ],
                 ),

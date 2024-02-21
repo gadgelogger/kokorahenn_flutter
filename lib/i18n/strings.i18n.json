@@ -1,0 +1,60 @@
+{
+    "mainScreen": {
+      "title": "List of restaurants around",
+      "button": "View restaurant details"
+      
+    },
+    "restaurantDetailScreen": {
+        "address": "address:",
+        "open": "Business Hours:",
+        "close": "Closing days:",
+        "genre": "Genre of Business:",
+        "freeFood": "All-you-can-eat:",
+        "freeDrink": "All you can drink:",
+        "course": "Course:",
+        "capacity": "Total number of seats:",
+        "nonSmoking": "No Smoking:",
+        "budget": "Average Budget:",
+        "card": "Card Payment:",
+        "parking": "Parking lot:",
+        "barrierFree": "Barrier-free:",
+        "otherMemo": "Other Facilities:",
+        "shopDetailMemo": "Remarks:"
+    },
+    "settingsScreen": {
+      "title": "Setting",
+      "themeTitle": "color scheme",
+      "theme": "Theme",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "themeSystem": "System",
+      "othersTitle": "Other",
+      "share": "Share this app",
+      "privacy": "Privacy Policy",
+      "contact": "Contact us",
+      "info": "About the App",
+      "tutorial": "How to use this app",
+      "license": "License",
+      "version": "Version",
+      "error": "error"
+    },
+    "tutorialScreen": {
+      "title": "kokorahen",
+      "titleDescription": "Around here is an app to find restaurants around you!",
+      "secondTitle":"More convenient with updates",
+      "secondDescription": "In the future, you will be able to search for facilities other than restaurants.",
+      "thirdTitle": "Come on, let's go eat dinner.!"
+    },
+    "bottomNavigation": {
+      "home": "Home",
+      "setting": "Setting"
+    },
+    "error": {
+      "empty": "No restaurants found nearby, please expand your search using the buttons at the bottom right of the screen and try again.",
+      "failed": "An error has occurred."
+    },
+    "locales(map)": {
+      "en": "English",
+      "ja": "Japanese"
+    }
+  }

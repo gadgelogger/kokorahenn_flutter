@@ -1,0 +1,60 @@
+{
+    "mainScreen": {
+      "title": "周りにあるレストラン一覧",
+      "button": "お店の詳細を見る"
+      
+    },
+    "restaurantDetailScreen": {
+        "address": "住所:",
+        "open": "営業時間:",
+        "close": "閉業日:",
+        "genre": "ジャンル:",
+        "freeFood": "食べ放題:",
+        "freeDrink": "飲み放題:",
+        "course": "コース:",
+        "capacity": "総席数:",
+        "nonSmoking": "禁煙:",
+        "budget": "平均予算:",
+        "card": "カード決済:",
+        "parking": "駐車場:",
+        "barrierFree": "バリアフリー:",
+        "otherMemo": "その他設備:",
+        "shopDetailMemo": "備考:"
+    },
+    "settingsScreen": {
+      "title": "設定",
+      "themeTitle": "配色",
+      "theme": "テーマ",
+      "themeLight": "ライト",
+      "themeDark": "ダーク",
+      "themeSystem": "システム設定に従う",
+      "othersTitle": "その他",
+      "share": "このアプリをシェアする",
+      "privacy": "プライバシーポリシー",
+      "contact": "お問い合わせはこちら",
+      "info": "アプリについて",
+      "tutorial": "このアプリの使い方",
+      "license": "ライセンス",
+      "version": "バージョン情報",
+      "error": "エラー"
+    },
+    "tutorialScreen": {
+      "title": "ここらへん",
+      "titleDescription": "ここらへんは、あなたの周りにあるレストランを探すアプリです",
+      "secondTitle":"アップデートでより便利に",
+      "secondDescription": "将来的にレストラン以外の施設も検索できるようになる予定です",
+      "thirdTitle": "さあ、ご飯を食べに行こう!"
+    },
+    "bottomNavigation": {
+      "home": "ホーム",
+      "setting": "設定"
+    },
+    "error": {
+      "empty": "近くにレストランが見つかりませんでした\n画面右下の「三」から\n範囲を広げて再度検索してみてください",
+      "failed": "エラーが発生しました"
+    },
+    "locales(map)": {
+      "en": "英語",
+      "ja": "日本語"
+    }
+  }

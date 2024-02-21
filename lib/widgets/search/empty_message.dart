@@ -1,8 +1,10 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 
 class EmptyMessage extends StatelessWidget {
-  const EmptyMessage({super.key});
+  EmptyMessage({super.key});
+  final error = t.error;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +18,9 @@ class EmptyMessage extends StatelessWidget {
             child: Image.asset('assets/images/found.gif'),
           ),
           const SizedBox(height: 50),
-          const Text(
-            '近くにレストランが見つかりませんでした\n画面右下の「三」から\n範囲を広げて再度検索してみてください',
-            style: TextStyle(fontSize: 18),
+          Text(
+            error.empty,
+            style: const TextStyle(fontSize: 18),
             textAlign: TextAlign.center,
           ),
         ],

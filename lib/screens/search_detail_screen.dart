@@ -1,5 +1,6 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 
 // Project imports:
 import 'package:kokorahenn_flutter/widgets/detail/detail_buttons.dart';
@@ -8,9 +9,9 @@ import '../model/dto/shop.dart';
 import '../widgets/detail/detail_image.dart';
 
 class SearchDetailPage extends StatelessWidget {
-  const SearchDetailPage({super.key, required this.shop});
+  SearchDetailPage({super.key, required this.shop});
   final Shop shop;
-
+  final detail = t.restaurantDetailScreen;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,77 +35,77 @@ class SearchDetailPage extends StatelessWidget {
             const Divider(),
             DetailInfo(
               icon: Icons.map_outlined,
-              info: '住所:',
+              info: detail.address,
               text: shop.address ?? '住所不明',
             ),
             DetailInfo(
               icon: Icons.access_time_outlined,
-              info: '営業時間:',
+              info: detail.open,
               text: shop.open ?? '営業時間不明',
             ),
             DetailInfo(
               icon: Icons.block_outlined,
-              info: '閉業日:',
+              info: detail.close,
               text: shop.close ?? '閉業日不明',
             ),
             DetailInfo(
               icon: Icons.category_outlined,
-              info: 'ジャンル:',
+              info: detail.genre,
               text: shop.genre?.name ?? 'ジャンル不明',
             ),
             DetailInfo(
               icon: Icons.restaurant_rounded,
-              info: '食べ放題:',
+              info: detail.freeFood,
               text: shop.freeFood ?? '食べ放題不明',
             ),
             DetailInfo(
               icon: Icons.sports_bar_outlined,
-              info: '飲み放題:',
+              info: detail.freeDrink,
               text: shop.freeDrink ?? '飲み放題不明',
             ),
             DetailInfo(
               icon: Icons.air_outlined,
-              info: 'コース:',
+              info: detail.course,
               text: shop.course ?? 'コース不明',
             ),
             DetailInfo(
               icon: Icons.chair_alt_outlined,
-              info: '総席数:',
+              info: detail.capacity,
               text: shop.capacity.toString(),
             ),
             DetailInfo(
               icon: Icons.smoking_rooms_outlined,
-              info: '禁煙:',
+              info: detail.nonSmoking,
               text: shop.nonSmoking ?? '禁煙不明',
             ),
             DetailInfo(
               icon: Icons.payments_outlined,
-              info: '平均予算:',
+              info: detail.budget,
               text: shop.budget?.average ?? '平均予算不明',
             ),
             DetailInfo(
               icon: Icons.payment_outlined,
-              info: 'カード決済:',
+              info: detail.card,
               text: shop.card ?? 'カード決済不明',
             ),
             DetailInfo(
               icon: Icons.no_crash_outlined,
-              info: '駐車場:',
+              info: detail.parking,
               text: shop.parking ?? '駐車場不明',
             ),
             DetailInfo(
               icon: Icons.wheelchair_pickup_outlined,
-              info: 'バリアフリー:',
+              info: detail.barrierFree,
               text: shop.barrierFree ?? 'バリアフリー不明',
             ),
             DetailInfo(
               icon: Icons.house_outlined,
-              info: 'その他設備:',
+              info: detail.otherMemo,
               text: shop.otherMemo ?? 'その他設備不明',
             ),
             DetailInfo(
               icon: Icons.note_outlined,
-              info: '備考:',
+              info: detail.shopDetailMemo,
               text: shop.shopDetailMemo ?? '備考不明',
             ),
           ],
