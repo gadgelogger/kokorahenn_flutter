@@ -67,7 +67,7 @@ class DetailButtons extends StatelessWidget {
                     ListTile(
                       onTap: () => map.showMarker(
                         coords: Coords(lat, lng),
-                        title: 'Destination',
+                        title: shopName,
                       ),
                       title: Text(map.mapName),
                       leading: SvgPicture.asset(
