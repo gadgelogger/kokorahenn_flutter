@@ -27,7 +27,7 @@ class SearchList extends StatelessWidget {
           return ErrorMessage();
         }
 
-        final shops = snapshot.data!;
+        final shops = snapshot.data ?? [];
         return ListView.builder(
           itemCount: shops.length,
           itemBuilder: (BuildContext context, int index) {
