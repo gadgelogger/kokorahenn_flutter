@@ -12,9 +12,9 @@ class RangeSelector extends StatelessWidget {
       children: <Widget>[
         ListTile(title: const Text('300m'), onTap: () => onRangeSelected(1)),
         ListTile(title: const Text('500m'), onTap: () => onRangeSelected(2)),
-        ListTile(title: const Text('1000m'), onTap: () => onRangeSelected(3)),
-        ListTile(title: const Text('2000m'), onTap: () => onRangeSelected(4)),
-        ListTile(title: const Text('3000m'), onTap: () => onRangeSelected(5)),
+        ListTile(title: const Text('1km'), onTap: () => onRangeSelected(3)),
+        ListTile(title: const Text('2km'), onTap: () => onRangeSelected(4)),
+        ListTile(title: const Text('3km'), onTap: () => onRangeSelected(5)),
       ],
     );
   }

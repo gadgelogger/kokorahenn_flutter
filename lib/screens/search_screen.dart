@@ -50,7 +50,7 @@ class SearchPageState extends State<SearchPage> {
               shops: _shops,
               onRefresh: _fetchShopList,
             ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           RangeSelectorModal().show(context, (selectedRange) {
             setState(() {
@@ -59,7 +59,20 @@ class SearchPageState extends State<SearchPage> {
             _fetchShopList();
           });
         },
-        child: const Icon(Icons.filter_list),
+        label: Text(
+          _selectedRange == 1
+              ? '300m'
+              : _selectedRange == 2
+                  ? '500m'
+                  : _selectedRange == 3
+                      ? '1km'
+                      : _selectedRange == 4
+                          ? '2km'
+                          : _selectedRange == 5
+                              ? '3km'
+                              : 'Unknown',
+        ),
+        icon: const Icon(Icons.sort),
       ),
     );
   }

@@ -28,8 +28,8 @@ class SearchTile extends ConsumerWidget {
       userPosition?.longitude ?? 0,
       shop.lat ?? 0,
       shop.lng ?? 0,
-    ).toStringAsFixed(2);
-    final distanceText = '$distance km先にあります.';
+    );
+    final distanceText = '$distance先にあります.';
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       child: ExpansionTileCard(

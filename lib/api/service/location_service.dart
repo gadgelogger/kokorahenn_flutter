@@ -40,7 +40,7 @@ class LocationNotifier with ChangeNotifier {
 }
 
 // 現在地からの距離を計算する関数
-double calculateDistance(
+String calculateDistance(
   double userLatitude,
   double userLongitude,
   double shopLatitude,
@@ -61,5 +61,11 @@ double calculateDistance(
   final c = 2 * atan2(sqrt(a), sqrt(1 - a));
 
   final distance = earthRadius * c;
-  return distance;
+
+  if (distance >= 1) {
+    return '${distance.toStringAsFixed(1)}km';
+  } else {
+    final meters = (distance * 1000).toInt();
+    return '$meters m';
+  }
 }
