@@ -9,11 +9,22 @@ class RangeSelectorModal {
     showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
-        return RangeSelector(
-          onRangeSelected: (selectedRange) {
-            onRangeSelected(selectedRange);
-            Navigator.pop(context);
-          },
+        return SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(8),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text('検索範囲を変更', style: TextStyle(fontSize: 20)),
+                RangeSelector(
+                  onRangeSelected: (selectedRange) {
+                    onRangeSelected(selectedRange);
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
+          ),
         );
       },
     );
