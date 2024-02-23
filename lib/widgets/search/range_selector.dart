@@ -9,6 +9,7 @@ class RangeSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
       children: <Widget>[
         ListTile(title: const Text('300m'), onTap: () => onRangeSelected(1)),
         ListTile(title: const Text('500m'), onTap: () => onRangeSelected(2)),
