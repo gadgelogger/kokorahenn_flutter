@@ -10,7 +10,6 @@ class TutorialScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // ここでローカル変数としてtutorialを定義
     final tutorial = t.tutorialScreen;
 
     final pages = [
