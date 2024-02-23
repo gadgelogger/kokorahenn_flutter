@@ -1,8 +1,9 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-
 // Project imports:
 import 'package:kokorahenn_flutter/i18n/strings.g.dart';
+import 'package:kokorahenn_flutter/widgets/search/loading_indicator.dart';
+
 import '../api/service/api_service.dart';
 import '../model/dto/shop.dart';
 import '../widgets/search/range_selector_modal.dart';
@@ -17,16 +18,38 @@ class SearchPage extends StatefulWidget {
 
 class SearchPageState extends State<SearchPage> {
   int _selectedRange = 3;
+  List<Shop> _shops = [];
+  bool _isLoading = true;
   final searchPage = t.mainScreen;
+  @override
+  void initState() {
+    super.initState();
+    _fetchShopList();
+  }
+
+  Future<void> _fetchShopList() async {
+    setState(() {
+      _isLoading = true;
+    });
+    final shops = await ApiService().fetchShopList(range: _selectedRange);
+    setState(() {
+      _shops = shops;
+      _isLoading = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(searchPage.title),
       ),
-      body: SearchList(
-        shopsFuture: _fetchShopList(),
-      ),
+      body: _isLoading
+          ? const LoadingIndicator()
+          : SearchList(
+              shops: _shops,
+              onRefresh: _fetchShopList,
+            ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           RangeSelectorModal().show(context, (selectedRange) {
@@ -39,9 +62,5 @@ class SearchPageState extends State<SearchPage> {
         child: const Icon(Icons.filter_list),
       ),
     );
-  }
-
-  Future<List<Shop>> _fetchShopList() async {
-    return ApiService().fetchShopList(range: _selectedRange);
   }
 }

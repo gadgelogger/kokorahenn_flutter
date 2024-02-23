@@ -1,6 +1,5 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-
 // Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:map_launcher/map_launcher.dart';
@@ -39,7 +38,7 @@ class DetailButtons extends StatelessWidget {
         IconButton.filledTonal(
           icon: const Icon(Icons.search),
           padding: const EdgeInsets.all(20),
-          onPressed: () => _launchGoogleSearch(shopName), // Google検索を実行
+          onPressed: () => _launchGoogleSearch(shopName),
         ),
       ],
     );
@@ -109,7 +108,7 @@ class DetailButtons extends StatelessWidget {
 }
 
 Future<void> _launchGoogleSearch(String shopName) async {
-  final query = Uri.encodeComponent(shopName); // クエリパラメータのエンコード
+  final query = Uri.encodeComponent(shopName);
   final url = 'https://www.google.com/search?q=$query';
   if (await canLaunchUrlString(url)) {
     await launchUrlString(url);
