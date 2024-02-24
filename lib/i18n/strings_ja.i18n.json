@@ -5,6 +5,7 @@
       
     },
     "restaurantDetailScreen": {
+        "detail":"詳細",
         "address": "住所:",
         "open": "営業時間:",
         "close": "閉業日:",
@@ -19,7 +20,24 @@
         "parking": "駐車場:",
         "barrierFree": "バリアフリー:",
         "otherMemo": "その他設備:",
-        "shopDetailMemo": "備考:"
+        "shopDetailMemo": "備考:",
+        "address_error": "住所不明",
+        "open_error": "営業時間不明",
+        "close_error": "閉業日不明",
+        "genre_error": "ジャンル不明",
+        "freeFood_error": "食べ放題不明",
+        "freeDrink_error": "飲み放題不明",
+        "course_error": "コース不明",
+        "capacity_error": "総席数不明",
+        "nonSmoking_error": "禁煙不明",
+        "budget_error": "平均予算不明",
+        "card_error": "カード決済不明",
+        "parking_error": "駐車場不明",
+        "barrierFree_error": "バリアフリー不明",
+        "otherMemo_error": "その他設備不明",
+        "shopDetailMemo_error": "備考不明"
+       
+
     },
     "settingsScreen": {
       "title": "設定",

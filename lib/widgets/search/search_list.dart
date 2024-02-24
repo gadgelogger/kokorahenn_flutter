@@ -24,7 +24,7 @@ class SearchList extends StatelessWidget {
           final shop = shops[index];
           return SearchTile(
             shop: shop,
-            onTap: () => Navigator.push(
+            cardButtonTap: () => Navigator.push(
               context,
               MaterialPageRoute<SearchDetailPage>(
                 builder: (context) => SearchDetailPage(shop: shop),

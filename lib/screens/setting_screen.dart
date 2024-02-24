@@ -7,13 +7,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 // Project imports:
 import 'package:kokorahenn_flutter/i18n/strings.g.dart';
+import 'package:kokorahenn_flutter/screens/tutorial_screen.dart';
+import 'package:kokorahenn_flutter/theme/theme_mode_provider.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:settings_ui/settings_ui.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher_string.dart';
-
-import '../theme/theme_mode_provider.dart';
-import 'tutorial_screen.dart';
 
 class SettingPage extends ConsumerWidget {
   SettingPage({super.key});
@@ -21,8 +20,6 @@ class SettingPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final toggle = ref.read(themeModeProvider.notifier).toggle;
-
     return Scaffold(
       appBar: AppBar(
         title: Text(setting.title),
@@ -40,15 +37,10 @@ class SettingPage extends ConsumerWidget {
                     title: Text(setting.theme),
                     leading: const Icon(Icons.color_lens),
                     trailing: Text(
-                      {
-                            ThemeMode.light: setting.themeLight,
-                            ThemeMode.dark: setting.themeDark,
-                            ThemeMode.system: setting.themeSystem,
-                          }[ref.watch(themeModeProvider)] ??
-                          setting.error,
+                      ref.watch(themeModeProvider).toString(),
                     ),
                     onPressed: (_) async {
-                      await toggle();
+                      await ref.read(themeModeProvider.notifier).toggle();
                     },
                   ),
                 ],

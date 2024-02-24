@@ -5,7 +5,8 @@
       
     },
     "restaurantDetailScreen": {
-        "address": "address:",
+       "detail":"Detail",
+        "address": "Address:",
         "open": "Business Hours:",
         "close": "Closing days:",
         "genre": "Genre of Business:",
@@ -19,7 +20,22 @@
         "parking": "Parking lot:",
         "barrierFree": "Barrier-free:",
         "otherMemo": "Other Facilities:",
-        "shopDetailMemo": "Remarks:"
+        "shopDetailMemo": "Remarks:",
+        "address_error": "address Unknown",
+        "open_error": "Business Hours Unknown",
+        "close_error": "Closing days Unknown",
+        "genre_error": "Genre of Business Unknown",
+        "freeFood_error": "All-you-can-eat Unknown",
+        "freeDrink_error": "All you can drink Unknown",
+        "course_error": "Course Unknown",
+        "capacity_error": "Total number of seats Unknown",
+        "nonSmoking_error": "No Smoking Unknown",
+        "budget_error": "Average Budget Unknown",
+        "card_error": "Card Payment Unknown",
+        "parking_error": "Parking lot Unknown",
+        "barrierFree_error": "Barrier-free Unknown",
+        "otherMemo_error": "Other Facilities Unknown",
+        "shopDetailMemo_error": "Remarks Unknown"
     },
     "settingsScreen": {
       "title": "Setting",

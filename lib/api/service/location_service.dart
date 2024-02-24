@@ -1,9 +1,6 @@
-// location_service.dart
-
 // Package imports:
 import 'dart:math';
 
-import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 class LocationService {
@@ -25,20 +22,6 @@ class LocationService {
   }
 }
 
-// Provider
-class LocationNotifier with ChangeNotifier {
-  Position? _currentUserPosition;
-
-  Position? get currentUserPosition => _currentUserPosition;
-
-  Future<void> fetchCurrentUserPosition() async {
-    _currentUserPosition = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high,
-    );
-    notifyListeners(); // Listenersに変更を通知
-  }
-}
-
 // 現在地からの距離を計算する関数
 String calculateDistance(
   double userLatitude,
@@ -46,7 +29,7 @@ String calculateDistance(
   double shopLatitude,
   double shopLongitude,
 ) {
-  const earthRadius = 6371; // in kilometers
+  const earthRadius = 6371;
 
   final lat1 = userLatitude * pi / 180;
   final lon1 = userLongitude * pi / 180;

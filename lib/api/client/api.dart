@@ -1,9 +1,9 @@
 // Package imports:
 import 'package:dio/dio.dart';
+import 'package:kokorahenn_flutter/env/env.dart';
 import 'package:retrofit/retrofit.dart';
 
 // Project imports:
-import '../../env/env.dart';
 import 'app_dio.dart';
 
 part 'api.g.dart';

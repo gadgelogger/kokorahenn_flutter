@@ -1,15 +1,12 @@
-// main_screen.dart
-
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:kokorahenn_flutter/screens/search_screen.dart';
 // Project imports:
 import 'package:kokorahenn_flutter/screens/setting_screen.dart';
 import 'package:kokorahenn_flutter/screens/tutorial_screen.dart';
 import 'package:kokorahenn_flutter/widgets/bottom_navigation.dart';
 // Package imports:
-import 'package:shared_preferences/shared_preferences.dart'; //import_sorter:keep
-
-import 'search_screen.dart'; //import_sorter:keep
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
