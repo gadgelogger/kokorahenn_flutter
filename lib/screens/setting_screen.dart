@@ -17,7 +17,8 @@ import 'package:url_launcher/url_launcher_string.dart';
 class SettingPage extends ConsumerWidget {
   SettingPage({super.key});
   final setting = t.settingsScreen;
-
+  // FIX: 使い所1箇所なら変数定義の意味はないかも
+  //直接呼び出すように変更しました。(44行目)
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
@@ -36,6 +37,8 @@ class SettingPage extends ConsumerWidget {
                   SettingsTile.navigation(
                     title: Text(setting.theme),
                     leading: const Icon(Icons.color_lens),
+                    // FIX: せっかくproviderで状態として持たせてるから直接参照したらいいだけだと思います
+                    //直接ref.watchで呼ぶようにしました。
                     trailing: Text(
                       ref.watch(themeModeProvider).toString(),
                     ),

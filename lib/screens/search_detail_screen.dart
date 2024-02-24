@@ -35,6 +35,8 @@ class SearchDetailPage extends StatelessWidget {
             DetailInfo(
               icon: Icons.map_outlined,
               info: detail.address,
+              // FIX: null合体演算子の多言語対応はしない？
+              // 多言語対応しました。
               text: shop.address ?? detail.address_error,
             ),
             DetailInfo(

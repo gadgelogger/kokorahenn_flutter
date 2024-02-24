@@ -3,6 +3,8 @@ import 'dart:math';
 
 import 'package:geolocator/geolocator.dart';
 
+// FIX: 1ファイルに処理のレイヤーが違うクラスを書くのは不適切なのでファイルを分けてください。ファイル名と、そこで管理するクラス名を揃えるように。
+//ファイルを分けました。(location_service.dartとlocation_notifier.dartに変更しました)
 class LocationService {
   Future<Position> getCurrentPosition() async {
     LocationPermission permission;

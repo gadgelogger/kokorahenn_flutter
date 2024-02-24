@@ -92,7 +92,10 @@ class DetailButtons extends StatelessWidget {
         }
 
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Map application is not available.')),
+          // FIX: SnackBarにしたい時とExceptionを投げたい時の使い分けは明確にある？
+          // Exceptionにしました。
+
+          throw Exception('Map application is not available.'),
         );
       }
     }

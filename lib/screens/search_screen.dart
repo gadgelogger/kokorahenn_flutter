@@ -4,6 +4,8 @@ import 'package:kokorahenn_flutter/api/service/api_service.dart';
 // Project imports:
 import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
+import 'package:kokorahenn_flutter/widgets/search/empty_message.dart';
+import 'package:kokorahenn_flutter/widgets/search/error_message.dart';
 import 'package:kokorahenn_flutter/widgets/search/range_selector_modal.dart';
 import 'package:kokorahenn_flutter/widgets/search/search_list.dart';
 
@@ -15,9 +17,9 @@ class SearchPage extends StatefulWidget {
 }
 
 class SearchPageState extends State<SearchPage> {
+  // TODO: こういうのstateで持つようにしたらリクエストの節約になるんじゃないかな
+  //stateで持つ=seyStateで更新するということですかね。。。？
   int _selectedRange = 3;
-  List<Shop> _shops = [];
-  bool _isLoading = true;
   final searchPage = t.mainScreen;
   @override
   void initState() {
@@ -25,15 +27,8 @@ class SearchPageState extends State<SearchPage> {
     _fetchShopList();
   }
 
-  Future<void> _fetchShopList() async {
-    setState(() {
-      _isLoading = true;
-    });
-    final shops = await ApiService().fetchShopList(range: _selectedRange);
-    setState(() {
-      _shops = shops;
-      _isLoading = false;
-    });
+  Future<List<Shop>> _fetchShopList() async {
+    return ApiService().fetchShopList(range: _selectedRange);
   }
 
   String getRangeText(int range) {
@@ -59,12 +54,29 @@ class SearchPageState extends State<SearchPage> {
       appBar: AppBar(
         title: Text(searchPage.title),
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : SearchList(
-              shops: _shops,
-              onRefresh: _fetchShopList,
-            ),
+      body: FutureBuilder<List<Shop>>(
+        future: _fetchShopList(),
+        builder: (BuildContext context, AsyncSnapshot<List<Shop>> snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            //FIX:ローディングインジゲータは直接記入しました。
+            return const Center(child: CircularProgressIndicator());
+          }
+          if (snapshot.connectionState == ConnectionState.none) {
+            return ErrorMessage();
+          }
+          if (snapshot.data?.isEmpty ?? true) {
+            return EmptyMessage();
+          }
+          if (snapshot.hasError) {
+            return ErrorMessage();
+          }
+          final shops = snapshot.data ?? [];
+          return SearchList(
+            shops: shops,
+            onRefresh: _fetchShopList,
+          );
+        },
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           RangeSelectorModal().show(context, (selectedRange) {
@@ -74,6 +86,8 @@ class SearchPageState extends State<SearchPage> {
             _fetchShopList();
           });
         },
+        // FIX: 結構タブーな三項演算子の使い方。メソッドとして抜き出したりswitch式にするなりしたらいいと思う
+        //メソッドにしました。
         label: Text(getRangeText(_selectedRange)),
         icon: const Icon(Icons.sort),
       ),
