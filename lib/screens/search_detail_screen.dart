@@ -1,12 +1,11 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-
 // Project imports:
 import 'package:kokorahenn_flutter/i18n/strings.g.dart';
+import 'package:kokorahenn_flutter/model/dto/shop.dart';
 import 'package:kokorahenn_flutter/widgets/detail/detail_buttons.dart';
+import 'package:kokorahenn_flutter/widgets/detail/detail_image.dart';
 import 'package:kokorahenn_flutter/widgets/detail/detail_info.dart';
-import '../model/dto/shop.dart';
-import '../widgets/detail/detail_image.dart';
 
 class SearchDetailPage extends StatelessWidget {
   SearchDetailPage({super.key, required this.shop});

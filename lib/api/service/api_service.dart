@@ -1,5 +1,3 @@
-// api_service.dart (改修版)
-
 // Dart imports:
 import 'dart:convert';
 
@@ -20,10 +18,8 @@ class ApiService {
 
   Future<List<Shop>> fetchShopList({required int range}) async {
     try {
-      // 位置情報の取得
       final position = await locationService.getCurrentPosition();
 
-      // 位置情報を使用したAPIリクエスト
       final response = await hotpepperClient.fetchHotpepperInfo(
         apiKey: Env.key,
         format: 'json',

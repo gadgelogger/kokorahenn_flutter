@@ -1,12 +1,11 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:kokorahenn_flutter/api/service/api_service.dart';
 // Project imports:
 import 'package:kokorahenn_flutter/i18n/strings.g.dart';
-
-import '../api/service/api_service.dart';
-import '../model/dto/shop.dart';
-import '../widgets/search/range_selector_modal.dart';
-import '../widgets/search/search_list.dart';
+import 'package:kokorahenn_flutter/model/dto/shop.dart';
+import 'package:kokorahenn_flutter/widgets/search/range_selector_modal.dart';
+import 'package:kokorahenn_flutter/widgets/search/search_list.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});

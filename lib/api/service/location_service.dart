@@ -29,7 +29,7 @@ String calculateDistance(
   double shopLatitude,
   double shopLongitude,
 ) {
-  const earthRadius = 6371; // in kilometers
+  const earthRadius = 6371;
 
   final lat1 = userLatitude * pi / 180;
   final lon1 = userLongitude * pi / 180;

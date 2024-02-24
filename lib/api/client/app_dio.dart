@@ -1,6 +1,5 @@
 // package imports
-import 'package:dio/dio.dart'; // ignore: import_of_legacy_library_into_null_safe
-
+import 'package:dio/dio.dart';
 // Flutter imports:
 import 'package:flutter/widgets.dart';
 

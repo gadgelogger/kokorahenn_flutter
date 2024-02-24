@@ -1,8 +1,8 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:kokorahenn_flutter/widgets/search/range_selector.dart';
 
 // Project imports:
-import 'range_selector.dart';
 
 class RangeSelectorModal {
   void show(BuildContext context, void Function(int) onRangeSelected) {

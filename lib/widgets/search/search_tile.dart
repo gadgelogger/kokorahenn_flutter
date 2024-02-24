@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:expansion_tile_card/expansion_tile_card.dart'; // import_sorter:keep
+import 'package:expansion_tile_card/expansion_tile_card.dart';
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

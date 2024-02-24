@@ -11,7 +11,7 @@ class LocationNotifier with ChangeNotifier {
     _currentUserPosition = await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high,
     );
-    notifyListeners(); // Listenersに変更を通知
+    notifyListeners();
   }
 }
 
