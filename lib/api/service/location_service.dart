@@ -23,8 +23,6 @@ class LocationService {
 }
 
 // 現在地からの距離を計算する関数
-// TOOD: パラメーターで渡す際に全て0として扱うロジックがあるなら、
-// このメソッド自体はuserPositionとshopを受け取って処理する or それぞれの変数自体nullableにしてこのメソッドでnullのハンドリングをするのがいいかも
 String calculateDistance(
   double userLatitude,
   double userLongitude,
