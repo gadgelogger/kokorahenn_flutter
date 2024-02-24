@@ -6,6 +6,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
+// FIX: 1ファイルに処理のレイヤーが違うクラスを書くのは不適切なのでファイルを分けてください。ファイル名と、そこで管理するクラス名を揃えるように。
+
 class LocationService {
   Future<Position> getCurrentPosition() async {
     LocationPermission permission;
@@ -40,6 +42,8 @@ class LocationNotifier with ChangeNotifier {
 }
 
 // 現在地からの距離を計算する関数
+// TOOD: パラメーターで渡す際に全て0として扱うロジックがあるなら、
+// このメソッド自体はuserPositionとshopを受け取って処理する or それぞれの変数自体nullableにしてこのメソッドでnullのハンドリングをするのがいいかも
 String calculateDistance(
   double userLatitude,
   double userLongitude,

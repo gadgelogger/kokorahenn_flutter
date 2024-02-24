@@ -11,6 +11,8 @@ import 'package:kokorahenn_flutter/api/client/app_dio.dart';
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 import 'package:kokorahenn_flutter/model/response/hotpepper_gourmet_response_result.dart';
 
+// FIX: 全体を通じて、相対パス絶対パスの使い分けはある?（統一する）
+
 import '../../env/env.dart';
 import 'location_service.dart';
 

@@ -91,9 +91,7 @@ class DetailButtons extends StatelessWidget {
           return;
         }
 
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Map application is not available.')),
-        );
+        throw Exception('Could not launch Maps URL');
       }
     }
   }
@@ -102,6 +100,7 @@ class DetailButtons extends StatelessWidget {
     if (await canLaunchUrlString(urlString)) {
       await launchUrlString(urlString);
     } else {
+      // FIX: SnackBarにしたい時とExceptionを投げたい時の使い分けは明確にある？
       throw Exception('Could not launch $urlString');
     }
   }

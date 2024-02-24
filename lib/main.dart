@@ -26,6 +26,7 @@ class MainApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // TODO: MaterialAppの前にロジック含めた処理 + State更新をするのは不敵切。MainPageの中でやってください。
     ref.read(locationNotifierProvider).fetchCurrentUserPosition();
 
     return MaterialApp(
@@ -47,5 +48,6 @@ ThemeData _buildTheme(Brightness brightness) {
   );
 }
 
+// FIX: LocationNotifierクラスと同じファイルに記載するほうが適している
 final locationNotifierProvider =
     ChangeNotifierProvider((ref) => LocationNotifier());

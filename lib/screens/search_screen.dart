@@ -18,6 +18,7 @@ class SearchPage extends StatefulWidget {
 
 class SearchPageState extends State<SearchPage> {
   int _selectedRange = 3;
+  // FIX: こういうのstateで持つようにしたらリクエストの節約になるんじゃないかな
   List<Shop> _shops = [];
   bool _isLoading = true;
   final searchPage = t.mainScreen;
@@ -59,6 +60,8 @@ class SearchPageState extends State<SearchPage> {
             _fetchShopList();
           });
         },
+        // FIX: 結構タブーな三項演算子の使い方。メソッドとして抜き出したりswitch式にするなりしたらいいと思う
+
         label: Text(
           _selectedRange == 1
               ? '300m'

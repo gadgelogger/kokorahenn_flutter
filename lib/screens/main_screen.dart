@@ -1,4 +1,7 @@
+// FIX: このコメントは何のため...??
 // main_screen.dart
+
+// TODO: 全体のアーキテクチャとして、screenとwidgetが（視覚的に）離れているのは微妙な感じがする
 
 // Flutter imports:
 import 'package:flutter/material.dart';
@@ -35,6 +38,7 @@ class MainPageState extends State<MainPage> {
 
   Future<void> _checkFirstLaunch() async {
     final prefs = await SharedPreferences.getInstance();
+    // TODO:　管理したいならkeyThemeMode見たいにしっかり管理したほうがいいし、そういうのをenumか定数ファイルで管理していくと良い
     final isFirstLaunch = prefs.getBool('isFirstLaunch') ?? true;
 
     if (isFirstLaunch) {
@@ -42,6 +46,7 @@ class MainPageState extends State<MainPage> {
         return;
       }
 
+      // TODO: pushに指定するgenericsの意図がわかってなさそう！
       await Navigator.of(context).push<TutorialScreen>(
         MaterialPageRoute(builder: (_) => const TutorialScreen()),
       );

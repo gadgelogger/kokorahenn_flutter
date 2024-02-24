@@ -21,6 +21,7 @@ class SettingPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // FIX: 使い所1箇所なら変数定義の意味はないかも
     final toggle = ref.read(themeModeProvider.notifier).toggle;
 
     return Scaffold(
@@ -40,6 +41,7 @@ class SettingPage extends ConsumerWidget {
                     title: Text(setting.theme),
                     leading: const Icon(Icons.color_lens),
                     trailing: Text(
+                      // FIX: せっかくproviderで状態として持たせてるから直接参照したらいいだけだと思います
                       {
                             ThemeMode.light: setting.themeLight,
                             ThemeMode.dark: setting.themeDark,

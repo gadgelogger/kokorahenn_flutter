@@ -16,11 +16,15 @@ class SearchTile extends ConsumerWidget {
     required this.onTap,
   });
   final Shop shop;
+  // FIX: 変数名が抽象的すぎる。どこをタップした時の動作になるか使い手にわかるようになってると良い
   final VoidCallback onTap;
+  // FIX: 命名がウィジェットっぽい。buttonLabelとかbuttonTextとかにすると良い
   final button = t.mainScreen.button;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // FIX: 個人的見解なのでどちらでもいいですが、1度しか使わない変数はわざわざ変数として書き出さなくていいです。
+    // final userPosition = ref.watch(locationNotifierProvider).currentUserPosition;
     final locationNotifier = ref.watch(locationNotifierProvider);
     final userPosition = locationNotifier.currentUserPosition;
     final distance = calculateDistance(
@@ -65,6 +69,7 @@ class SearchTile extends ConsumerWidget {
             padding: const EdgeInsets.all(10),
             child: Column(
               children: [
+                // FIX: このRowは共通パーツにしていい。このファイル内のprivateクラスor関数で
                 Row(
                   children: [
                     const Icon(Icons.navigation_outlined),
@@ -107,6 +112,7 @@ class SearchTile extends ConsumerWidget {
                   ],
                 ),
                 const SizedBox(height: 8),
+
                 Row(
                   children: [
                     const Icon(Icons.category_outlined),

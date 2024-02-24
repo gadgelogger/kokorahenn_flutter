@@ -43,6 +43,10 @@ https://github.com/gadgelogger/kokorahenn_flutter/assets/39609331/f483bd2e-751b-
 flutter_riverpod:^2.4.10
 # 使用技術とパッケージ
 - GithubActionsによるCI
+
+ // FIX: これはFlutter知らない人に見せる想定？Flutter知ってる人向けならpubspec.yaml見せるだけでいいと思う
+
+
 - flutter_riverpod -状態管理（Themeの切り替えの際に使用）
 - cupertino_icons
 - dio
@@ -107,6 +111,8 @@ fvm install
 
 ```
 
+// TODO: どこまで丁寧にやるかだけど、いきなりfvmって出すのもREADMEとして親切じゃないかな。あとfvmは内部で管理してるよって説明もあるといいかも
+
 - 依存関係を読み込む
 ```
 fvm flutter pub get
@@ -118,6 +124,7 @@ fvm flutter pub get
 fvm dart run build_runner build -d  
 ```
 
+// TODO: launch.json用意するほうが親切
 - ビルドラン
 ```
 fvm flutter run

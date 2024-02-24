@@ -1,10 +1,10 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-
 // Project imports:
 import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 import 'package:kokorahenn_flutter/widgets/detail/detail_buttons.dart';
 import 'package:kokorahenn_flutter/widgets/detail/detail_info.dart';
+
 import '../model/dto/shop.dart';
 import '../widgets/detail/detail_image.dart';
 
@@ -36,6 +36,7 @@ class SearchDetailPage extends StatelessWidget {
             DetailInfo(
               icon: Icons.map_outlined,
               info: detail.address,
+              // TODO: null合体演算子の多言語対応はしない？
               text: shop.address ?? '住所不明',
             ),
             DetailInfo(
