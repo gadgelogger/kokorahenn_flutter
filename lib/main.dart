@@ -25,8 +25,6 @@ class MainApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // FIX: MaterialAppの前にロジック含めた処理 + State更新をするのは不敵切。MainPageの中でやってください。
-    //MainPageをConsumerWidgetに変更して、その中に移動しました。
     return MaterialApp(
       title: 'ここらへん',
       theme: _buildTheme(Brightness.light),
@@ -44,6 +42,3 @@ ThemeData _buildTheme(Brightness brightness) {
     brightness: brightness,
   );
 }
-// FIX: LocationNotifierクラスと同じファイルに記載するほうが適している。
-//api/service/location_notifier.dartに移動しました。
-

@@ -1,9 +1,3 @@
-// FIX: このコメントは何のため...??
-//消しました（多分import_sorterを実行した際にできた説が濃厚）
-//https://zenn.dev/nishiyama/articles/117ba152b36a2b315c7a#views%2Fbase_tab_view.dart
-//この記事を参考にRiverpodを用いたButtonNavigationを導入
-// TODO: 全体のアーキテクチャとして、screenとwidgetが（視覚的に）離れているのは微妙な感じがする
-//ここよく分からないので質問
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -25,15 +19,10 @@ class MainPage extends ConsumerWidget {
     SettingPage(),
   ];
 
-// FIX:　管理したいならkeyThemeMode見たいにしっかり管理したほうがいいし、そういうのをenumか定数ファイルで管理していくと良い
-// FIX: pushに指定するgenericsの意図がわかってなさそう！
-
-//ここ理解できていないので一旦削除
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.read(locationNotifierProvider).fetchCurrentUserPosition();
-    final view = ref.watch(baseTabViewProvider.state);
+    final view = ref.watch(baseTabViewProvider.notifier);
 
     return Scaffold(
       body: Center(

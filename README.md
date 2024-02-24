@@ -44,8 +44,7 @@ https://github.com/gadgelogger/kokorahenn_flutter/assets/39609331/f483bd2e-751b-
 flutter_riverpod:^2.4.10
 # 使用技術とパッケージ
 
- // FIX: これはFlutter知らない人に見せる想定？Flutter知ってる人向けならpubspec.yaml見せるだけでいいと思う
- //別会社のコーディング試験でpubspecを見せるだけでは不十分（えぇ）と言われたので念のために記入しています！
+
 
 
 - GithubActionsによるCI
@@ -113,7 +112,7 @@ fvm install
 
 ```
 fvmは3.19.1のStableを使用しております。（内部で管理しています）
-// TODO: どこまで丁寧にやるかだけど、いきなりfvmって出すのもREADMEとして親切じゃないかな。あとfvmは内部で管理してるよって説明もあるといいかも
+
 
 - 依存関係を読み込む
 ```
@@ -125,7 +124,6 @@ fvm flutter pub get
 ```
 fvm dart run build_runner build -d  
 ```
-// TODO: launch.json用意するほうが親切
 
 - ビルドラン
 ```

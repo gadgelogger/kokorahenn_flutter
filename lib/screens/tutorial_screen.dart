@@ -21,8 +21,6 @@ class TutorialScreen extends StatelessWidget {
         doAnimateImage: true,
       ),
       PageModel(
-        // FIX: 16進数にするのか、ARGBにするのか統一する
-        // 16進数に変更しました。
         color: const Color(0xFF5AC673),
         imageAssetPath: 'assets/images/splash_icon.png',
         title: tutorial.secondTitle,

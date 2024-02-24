@@ -17,8 +17,6 @@ class SearchPage extends StatefulWidget {
 }
 
 class SearchPageState extends State<SearchPage> {
-  // TODO: こういうのstateで持つようにしたらリクエストの節約になるんじゃないかな
-  //stateで持つ=seyStateで更新するということですかね。。。？
   int _selectedRange = 3;
   final searchPage = t.mainScreen;
   @override
@@ -58,7 +56,6 @@ class SearchPageState extends State<SearchPage> {
         future: _fetchShopList(),
         builder: (BuildContext context, AsyncSnapshot<List<Shop>> snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            //FIX:ローディングインジゲータは直接記入しました。
             return const Center(child: CircularProgressIndicator());
           }
           if (snapshot.connectionState == ConnectionState.none) {
@@ -86,8 +83,6 @@ class SearchPageState extends State<SearchPage> {
             _fetchShopList();
           });
         },
-        // FIX: 結構タブーな三項演算子の使い方。メソッドとして抜き出したりswitch式にするなりしたらいいと思う
-        //メソッドにしました。
         label: Text(getRangeText(_selectedRange)),
         icon: const Icon(Icons.sort),
       ),
