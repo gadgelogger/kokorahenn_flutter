@@ -1,9 +1,6 @@
-// location_service.dart
-
 // Package imports:
 import 'dart:math';
 
-import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 class LocationService {
@@ -25,21 +22,9 @@ class LocationService {
   }
 }
 
-// Provider
-class LocationNotifier with ChangeNotifier {
-  Position? _currentUserPosition;
-
-  Position? get currentUserPosition => _currentUserPosition;
-
-  Future<void> fetchCurrentUserPosition() async {
-    _currentUserPosition = await Geolocator.getCurrentPosition(
-      desiredAccuracy: LocationAccuracy.high,
-    );
-    notifyListeners(); // Listenersに変更を通知
-  }
-}
-
 // 現在地からの距離を計算する関数
+// TOOD: パラメーターで渡す際に全て0として扱うロジックがあるなら、
+// このメソッド自体はuserPositionとshopを受け取って処理する or それぞれの変数自体nullableにしてこのメソッドでnullのハンドリングをするのがいいかも
 String calculateDistance(
   double userLatitude,
   double userLongitude,

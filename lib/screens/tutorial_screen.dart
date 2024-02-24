@@ -21,7 +21,7 @@ class TutorialScreen extends StatelessWidget {
         doAnimateImage: true,
       ),
       PageModel(
-        color: const Color.fromARGB(255, 90, 198, 115),
+        color: const Color(0xFF5AC673),
         imageAssetPath: 'assets/images/splash_icon.png',
         title: tutorial.secondTitle,
         body: tutorial.secondDescription,

@@ -1,5 +1,3 @@
-// main_screen.dart
-
 // Flutter imports:
 import 'package:flutter/material.dart';
 // Project imports:

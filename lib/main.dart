@@ -2,11 +2,10 @@
 import 'package:flutter/material.dart';
 // Package imports:
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:kokorahenn_flutter/api/service/location_service.dart';
+import 'package:kokorahenn_flutter/api/service/share_preferences_instance.dart';
 // Project imports:
 import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 import 'package:kokorahenn_flutter/screens/main_screen.dart';
-import 'package:kokorahenn_flutter/theme/share_preferences_instance.dart';
 import 'package:kokorahenn_flutter/theme/theme_mode_provider.dart';
 
 void main() async {
@@ -26,8 +25,6 @@ class MainApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(locationNotifierProvider).fetchCurrentUserPosition();
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ここらへん',
@@ -46,6 +43,3 @@ ThemeData _buildTheme(Brightness brightness) {
     brightness: brightness,
   );
 }
-
-final locationNotifierProvider =
-    ChangeNotifierProvider((ref) => LocationNotifier());

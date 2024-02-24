@@ -21,8 +21,6 @@ class SettingPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final toggle = ref.read(themeModeProvider.notifier).toggle;
-
     return Scaffold(
       appBar: AppBar(
         title: Text(setting.title),
@@ -40,15 +38,10 @@ class SettingPage extends ConsumerWidget {
                     title: Text(setting.theme),
                     leading: const Icon(Icons.color_lens),
                     trailing: Text(
-                      {
-                            ThemeMode.light: setting.themeLight,
-                            ThemeMode.dark: setting.themeDark,
-                            ThemeMode.system: setting.themeSystem,
-                          }[ref.watch(themeModeProvider)] ??
-                          setting.error,
+                      ref.watch(themeModeProvider).toString(),
                     ),
                     onPressed: (_) async {
-                      await toggle();
+                      await ref.read(themeModeProvider.notifier).toggle();
                     },
                   ),
                 ],

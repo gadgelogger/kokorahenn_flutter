@@ -2,7 +2,6 @@
 import 'package:flutter/material.dart';
 // Project imports:
 import 'package:kokorahenn_flutter/i18n/strings.g.dart';
-import 'package:kokorahenn_flutter/widgets/search/loading_indicator.dart';
 
 import '../api/service/api_service.dart';
 import '../model/dto/shop.dart';
@@ -38,6 +37,23 @@ class SearchPageState extends State<SearchPage> {
     });
   }
 
+  String getRangeText(int range) {
+    switch (range) {
+      case 1:
+        return '300m';
+      case 2:
+        return '500m';
+      case 3:
+        return '1km';
+      case 4:
+        return '2km';
+      case 5:
+        return '3km';
+      default:
+        return 'Unknown';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +61,7 @@ class SearchPageState extends State<SearchPage> {
         title: Text(searchPage.title),
       ),
       body: _isLoading
-          ? const LoadingIndicator()
+          ? const Center(child: CircularProgressIndicator())
           : SearchList(
               shops: _shops,
               onRefresh: _fetchShopList,
@@ -59,19 +75,7 @@ class SearchPageState extends State<SearchPage> {
             _fetchShopList();
           });
         },
-        label: Text(
-          _selectedRange == 1
-              ? '300m'
-              : _selectedRange == 2
-                  ? '500m'
-                  : _selectedRange == 3
-                      ? '1km'
-                      : _selectedRange == 4
-                          ? '2km'
-                          : _selectedRange == 5
-                              ? '3km'
-                              : 'Unknown',
-        ),
+        label: Text(getRangeText(_selectedRange)),
         icon: const Icon(Icons.sort),
       ),
     );
