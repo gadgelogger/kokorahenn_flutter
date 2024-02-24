@@ -1,5 +1,5 @@
 // Package imports:
-import 'package:expansion_tile_card/expansion_tile_card.dart';
+import 'package:expansion_tile_card/expansion_tile_card.dart'; // import_sorter:keep
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -21,14 +21,15 @@ class SearchTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final locationNotifier = ref.watch(locationNotifierProvider);
-    final userPosition = locationNotifier.currentUserPosition;
+    final userPosition =
+        ref.watch(locationNotifierProvider).currentUserPosition;
     final distance = calculateDistance(
       userPosition?.latitude ?? 0,
       userPosition?.longitude ?? 0,
       shop.lat ?? 0,
       shop.lng ?? 0,
     );
+
     final distanceText = '$distance先にあります.';
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
