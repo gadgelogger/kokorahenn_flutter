@@ -125,9 +125,11 @@ class DetailButtons extends StatelessWidget {
     if (await canLaunchUrlString(url)) {
       await launchUrlString(url);
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('$errorMessage $url')),
-      );
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('$errorMessage $url')),
+        );
+      }
     }
   }
 }
