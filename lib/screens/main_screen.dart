@@ -1,4 +1,3 @@
-//ここよく分からないので質問
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -23,7 +22,7 @@ class MainPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.read(locationNotifierProvider).fetchCurrentUserPosition();
-    final view = ref.watch(baseTabViewProvider.notifier);
+    final view = ref.watch(baseTabViewProvider.state);
 
     return Scaffold(
       body: Center(
