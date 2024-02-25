@@ -1,7 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
-// Package imports:
 import 'package:flutter_svg/flutter_svg.dart';
+// Package imports:
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
@@ -92,7 +92,7 @@ class DetailButtons extends StatelessWidget {
         }
 
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Map application is not available.')),
+          throw Exception('Map application is not available.'),
         );
       }
     }

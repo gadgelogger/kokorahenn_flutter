@@ -1,7 +1,8 @@
 {
     "mainScreen": {
       "title": "周辺のレストラン",
-      "button": "お店の詳細を見る"
+      "button": "お店の詳細を見る",
+      "area_button": "検索範囲を変更"
       
     },
     "restaurantDetailScreen": {

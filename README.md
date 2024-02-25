@@ -96,11 +96,16 @@ lib
 
 ```
 # ビルド手順（※メモ）
-memo:envKeyの設定コマンドを追記すること
+todo:envKeyの設定コマンドを追記すること
 - クローン
 ```
 https://github.com/gadgelogger/kokorahenn_flutter.git
 ```
+- ディレクトリへ移動
+```
+cd kokorahenn_flutter
+```
+
 - fvm読み込み
 ```
 fvm install

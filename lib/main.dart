@@ -26,12 +26,11 @@ class MainApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
       title: 'ここらへん',
       theme: _buildTheme(Brightness.light),
       darkTheme: _buildTheme(Brightness.dark),
       themeMode: ref.watch(themeModeProvider),
-      home: const MainPage(),
+      home: MainPage(),
     );
   }
 }

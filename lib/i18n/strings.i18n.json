@@ -1,7 +1,9 @@
 {
     "mainScreen": {
       "title": "Nearby Restaurants",
-      "button": "View restaurant details"
+      "button": "View restaurant details",
+      "area_button": "Change search range"
+
       
     },
     "restaurantDetailScreen": {
