@@ -1,6 +1,7 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 // Package imports:
 import 'package:map_launcher/map_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -18,7 +19,6 @@ class DetailButtons extends StatelessWidget {
   final double longitude;
   final String? websiteUrl;
   final String shopName;
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -33,12 +33,12 @@ class DetailButtons extends StatelessWidget {
           IconButton.filledTonal(
             icon: const Icon(Icons.travel_explore_outlined),
             padding: const EdgeInsets.all(20),
-            onPressed: () => _launchURL(websiteUrl!),
+            onPressed: () => _launchURL(context, websiteUrl ?? ''),
           ),
         IconButton.filledTonal(
           icon: const Icon(Icons.search),
           padding: const EdgeInsets.all(20),
-          onPressed: () => _launchGoogleSearch(shopName),
+          onPressed: () => _launchGoogleSearch(context, shopName),
         ),
       ],
     );
@@ -84,6 +84,8 @@ class DetailButtons extends StatelessWidget {
     } else {
       final url =
           'https://www.google.com/maps/dir/?api=1&destination=$lat,$lng';
+      final errorMessage = t.error;
+
       if (await canLaunchUrlString(url)) {
         await launchUrlString(url);
       } else {
@@ -92,27 +94,40 @@ class DetailButtons extends StatelessWidget {
         }
 
         ScaffoldMessenger.of(context).showSnackBar(
-          throw Exception('Map application is not available.'),
+          SnackBar(content: Text(errorMessage.map_open_error)),
         );
       }
     }
   }
 
-  Future<void> _launchURL(String urlString) async {
+  Future<void> _launchURL(BuildContext context, String urlString) async {
     if (await canLaunchUrlString(urlString)) {
       await launchUrlString(urlString);
     } else {
-      throw Exception('Could not launch $urlString');
+      final errorMessage = t.error;
+
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('$errorMessage $urlString')),
+        );
+      }
     }
   }
-}
 
-Future<void> _launchGoogleSearch(String shopName) async {
-  final query = Uri.encodeComponent(shopName);
-  final url = 'https://www.google.com/search?q=$query';
-  if (await canLaunchUrlString(url)) {
-    await launchUrlString(url);
-  } else {
-    throw Exception('Could not launch $url');
+  Future<void> _launchGoogleSearch(
+    BuildContext context,
+    String shopName,
+  ) async {
+    final query = Uri.encodeComponent(shopName);
+    final url = 'https://www.google.com/search?q=$query';
+    final errorMessage = t.error;
+
+    if (await canLaunchUrlString(url)) {
+      await launchUrlString(url);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('$errorMessage $url')),
+      );
+    }
   }
 }

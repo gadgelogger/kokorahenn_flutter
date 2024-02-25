@@ -23,7 +23,7 @@ class MainPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     ref.read(locationNotifierProvider).fetchCurrentUserPosition();
-    final view = ref.watch(baseTabViewProvider.state);
+    final view = ref.watch(baseTabViewProvider.notifier);
 
     return Scaffold(
       body: Center(

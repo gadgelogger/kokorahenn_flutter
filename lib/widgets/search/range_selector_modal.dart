@@ -1,8 +1,10 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 import 'package:kokorahenn_flutter/widgets/search/range_selector.dart';
 
 // Project imports:
+final modalTitleLabel = t.mainScreen.area_button;
 
 class RangeSelectorModal {
   void show(BuildContext context, void Function(int) onRangeSelected) {
@@ -15,7 +17,7 @@ class RangeSelectorModal {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text('検索範囲を変更', style: TextStyle(fontSize: 20)),
+                Text(modalTitleLabel, style: const TextStyle(fontSize: 20)),
                 RangeSelector(
                   onRangeSelected: (selectedRange) {
                     onRangeSelected(selectedRange);

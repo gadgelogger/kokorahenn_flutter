@@ -17,8 +17,6 @@ class SearchPage extends StatefulWidget {
 }
 
 class SearchPageState extends State<SearchPage> {
-  // TODO: こういうのstateで持つようにしたらリクエストの節約になるんじゃないかな
-  //stateで持つ=seyStateで更新するということですかね。。。？
   int _selectedRange = 3;
   final searchPage = t.mainScreen;
   @override
