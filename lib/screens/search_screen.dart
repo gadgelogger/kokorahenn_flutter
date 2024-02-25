@@ -1,40 +1,46 @@
 // Flutter imports:
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:kokorahenn_flutter/api/service/api_service.dart';
-// Project imports:
 import 'package:kokorahenn_flutter/i18n/strings.g.dart';
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
+import 'package:kokorahenn_flutter/widgets/search/empty_message.dart';
+import 'package:kokorahenn_flutter/widgets/search/error_message.dart';
 import 'package:kokorahenn_flutter/widgets/search/range_selector_modal.dart';
 import 'package:kokorahenn_flutter/widgets/search/search_list.dart';
 
-class SearchPage extends StatefulWidget {
-  const SearchPage({super.key});
+class SearchState extends StateNotifier<AsyncValue<List<Shop>>> {
+  SearchState() : super(const AsyncValue.loading()) {
+    fetchShopList();
+  }
 
-  @override
-  SearchPageState createState() => SearchPageState();
+  int _selectedRange = 3;
+
+  Future<void> fetchShopList() async {
+    state = const AsyncValue.loading();
+    try {
+      final shops = await ApiService().fetchShopList(range: _selectedRange);
+      state = AsyncValue.data(shops);
+    } on Exception catch (e, s) {
+      state = AsyncValue.error(e, s);
+    }
+  }
+
+  void setSelectedRange(int range) {
+    _selectedRange = range;
+    fetchShopList();
+  }
+
+  int get selectedRange => _selectedRange;
 }
 
-class SearchPageState extends State<SearchPage> {
-  int _selectedRange = 3;
-  List<Shop> _shops = [];
-  bool _isLoading = true;
-  final searchPage = t.mainScreen;
-  @override
-  void initState() {
-    super.initState();
-    _fetchShopList();
-  }
+final searchProvider =
+    StateNotifierProvider<SearchState, AsyncValue<List<Shop>>>(
+  (ref) => SearchState(),
+);
 
-  Future<void> _fetchShopList() async {
-    setState(() {
-      _isLoading = true;
-    });
-    final shops = await ApiService().fetchShopList(range: _selectedRange);
-    setState(() {
-      _shops = shops;
-      _isLoading = false;
-    });
-  }
+class SearchPage extends ConsumerWidget {
+  const SearchPage({super.key});
 
   String getRangeText(int range) {
     switch (range) {
@@ -54,27 +60,36 @@ class SearchPageState extends State<SearchPage> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final searchState = ref.watch(searchProvider);
+    final searchPage = t.mainScreen;
     return Scaffold(
       appBar: AppBar(
         title: Text(searchPage.title),
       ),
-      body: _isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : SearchList(
-              shops: _shops,
-              onRefresh: _fetchShopList,
-            ),
+      body: searchState.when(
+        data: (shops) {
+          if (shops.isEmpty) {
+            return EmptyMessage();
+          } else {
+            return SearchList(
+              shops: shops,
+              onRefresh: () =>
+                  ref.read(searchProvider.notifier).fetchShopList(),
+            );
+          }
+        },
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (_, __) => ErrorMessage(),
+      ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           RangeSelectorModal().show(context, (selectedRange) {
-            setState(() {
-              _selectedRange = selectedRange;
-            });
-            _fetchShopList();
+            ref.read(searchProvider.notifier).setSelectedRange(selectedRange);
           });
         },
-        label: Text(getRangeText(_selectedRange)),
+        label:
+            Text(getRangeText(ref.read(searchProvider.notifier).selectedRange)),
         icon: const Icon(Icons.sort),
       ),
     );

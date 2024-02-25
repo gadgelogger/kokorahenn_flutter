@@ -1,7 +1,9 @@
 {
     "mainScreen": {
       "title": "Nearby Restaurants",
-      "button": "View restaurant details"
+      "button": "View restaurant details",
+      "area_button": "Change search range"
+
       
     },
     "restaurantDetailScreen": {
@@ -67,7 +69,9 @@
     },
     "error": {
       "empty": "No restaurants found nearby, please expand your search using the buttons at the bottom right of the screen and try again.",
-      "failed": "An error has occurred."
+      "failed": "An error has occurred.",
+      "map_open_error": "No map app available",
+      "url_open_error": "Could not open URL"
     },
     "locales(map)": {
       "en": "English",

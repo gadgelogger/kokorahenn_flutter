@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 // Project imports:
 import 'package:kokorahenn_flutter/api/client/api.dart';
 import 'package:kokorahenn_flutter/api/client/app_dio.dart';
-import 'package:kokorahenn_flutter/env/env.dart';
 import 'package:kokorahenn_flutter/model/dto/shop.dart';
 import 'package:kokorahenn_flutter/model/response/hotpepper_gourmet_response_result.dart';
 
@@ -21,7 +20,7 @@ class ApiService {
       final position = await locationService.getCurrentPosition();
 
       final response = await hotpepperClient.fetchHotpepperInfo(
-        apiKey: Env.key,
+        apiKey: 'fbf9b9be8fecf32a', //レビューをしやすくするために、APIキーを設定しています。
         format: 'json',
         latitude: position.latitude,
         longitude: position.longitude,

@@ -19,10 +19,16 @@ class DetailInfo extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(icon),
+              Row(
+                children: [
+                  Icon(icon),
+                  const SizedBox(width: 8),
+                  Text(info),
+                ],
+              ),
               const SizedBox(width: 8),
-              Text(info),
               Flexible(
                 child: Text(
                   text,

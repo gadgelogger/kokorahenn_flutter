@@ -16,14 +16,17 @@ class SearchTile extends ConsumerWidget {
     required this.cardButtonTap,
   });
   final Shop shop;
+
   final VoidCallback cardButtonTap;
+
   final buttonText = t.mainScreen.button;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userPosition =
         ref.watch(locationNotifierProvider).currentUserPosition;
-    final distance = calculateDistance(
+    final locationService = LocationService();
+    final distance = locationService.calculateDistance(
       userPosition?.latitude ?? 0,
       userPosition?.longitude ?? 0,
       shop.lat ?? 0,

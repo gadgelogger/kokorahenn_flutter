@@ -42,39 +42,83 @@ https://github.com/gadgelogger/kokorahenn_flutter/assets/39609331/f483bd2e-751b-
 # 状態管理
 flutter_riverpod:^2.4.10
 # 使用技術とパッケージ
-- GithubActionsによるCI
-- flutter_riverpod -状態管理（Themeの切り替えの際に使用）
-- cupertino_icons
-- dio
-- envied
-- expansion_tile_card
-- flutter_localization
-- flutter_overboard
-- flutter_svg
-- freezed
-- freezed_annotation
-- geolocator
-- json_annotation
-- map_launcher
-- package_info_plus
-- retrofit
-- settings_ui
-- share_plus
-- shared_preferences
-- slang
-- slang_flutter
-- url_launcher
+```
+name: kokorahenn_flutter
+description: "Facility Search Application"
+publish_to: 'none'
+version: 0.1.0
 
-----dev----
-- build_runner
-- envied_generator
-- flutter_launcher_icons
-- flutter_lints
-- flutter_native_splash
-- json_serializable
-- pedantic_mono
-- retrofit_generator
-- slang_build_runner
+environment:
+  sdk: '>=3.2.3 <4.0.0'
+
+dependencies:
+  cupertino_icons: ^1.0.6
+  dio: ^5.4.0
+  envied: ^0.5.3
+  expansion_tile_card: ^3.0.0
+  flutter:
+    sdk: flutter
+  flutter_localization: ^0.2.0
+  flutter_overboard: ^3.1.3
+  flutter_riverpod: ^2.4.10
+  flutter_svg: ^2.0.9
+  freezed: ^2.4.7
+  freezed_annotation: ^2.4.1
+  geolocator: ^11.0.0
+  json_annotation: ^4.8.1
+  map_launcher: ^3.1.0
+  package_info_plus: ^5.0.1
+  retrofit: ^4.1.0
+  settings_ui: ^2.0.2
+  share_plus: ^7.2.2
+  shared_preferences: ^2.2.2
+  slang: ^3.29.0
+  slang_flutter: ^3.29.0
+  url_launcher: ^6.2.4
+
+dev_dependencies:
+  build_runner: ^2.4.8
+  envied_generator: ^0.5.3
+  flutter_gen_runner: ^5.4.0
+  flutter_launcher_icons: "^0.13.1"
+  flutter_lints: ^2.0.0
+  flutter_native_splash: ^2.3.11
+  json_serializable: ^6.7.1
+  pedantic_mono: any
+  retrofit_generator: ^8.1.0
+  slang_build_runner: ^3.29.0
+  
+flutter_test:
+  sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+  - assets/images/
+
+flutter_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/images/app_icon.png"
+
+
+flutter_native_splash:
+  color: '#f19a38'
+  image: 'assets/images/splash_icon.png'
+  color_dark: '#f19a38'
+  image_dark: 'assets/images/splash_icon.png'
+  fullscreen: true
+  android_12:
+    icon_background_color: '#f19a38'
+    image: 'assets/images/splash_icon.png'
+    icon_background_color_dark: '#f19a38'
+    image_dark: 'assets/images/splash_icon.png'
+
+```
+
+
+
 # フォルダ構成
 ```
 lib
@@ -96,34 +140,62 @@ lib
 
 ```
 # ビルド手順（※メモ）
-memo:envKeyの設定コマンドを追記すること
-- クローン
+> **:warning: 採点をされる方へ**  
+> - リクエストをする際に必要なAPIキーは別途お送りさせていただきます。
+
+- リポジトリのクローン
 ```
-https://github.com/gadgelogger/kokorahenn_flutter.git
+$ git clone https://github.com/gadgelogger/kokorahenn_flutter.git
 ```
+- Dartのインストール
+```
+$ brew tap dart-lang/dart
+$ brew install dart
+```
+- fvmをインストール
+```
+$ dart pub global activate fvm
+```
+- fvmへのパスを通す
+```
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+```
+- fvmのインストール確認
+```
+$ fvm --version
+3.0.1
+```
+
+
+- ディレクトリへ移動
+```
+$ cd kokorahenn_flutter
+```
+
 - fvm読み込み
 ```
-fvm install
+$ fvm install
 
 ```
 
 - 依存関係を読み込む
 ```
-fvm flutter pub get
+$ fvm flutter pub get
 
 ```
 
 - freezedなどのコード生成
 ```
-fvm dart run build_runner build -d  
+$ fvm flutter pub run build_runner build
 ```
 
 - ビルドラン
 ```
-fvm flutter run
+$ fvm flutter run
 ```
 
 # CI
+- GithubActionを使用
 - `develop`または`main`ブランチにプルリクエストが出された時に動作する
 - フォーマットが崩れていないか
 - build_runnerでのファイルの生成
@@ -136,7 +208,11 @@ fvm flutter run
 - さまざまな方に使ってもらいたい気持ちがあるため多言語対応をしました。
 # 感想、難しかったところ
 - テストの知見が浅いため、テストの実装ができなかった。
-- アーキテクチの知見がなかったため導入できなかった。
+  - UnitTest/WidgetTest/IntegrationTestなどを実装して品質をさらに高めたい
+  - https://github.com/hukusuke1007/flutter_app_template/tree/main/layer_first/lib/presentation
+  - このような”テストしやすいコード”を意識して実装したい。
+- アーキテクチャの知見がなかったため導入できなかった。
+  - MVC/MVVMなどあるが、MVCをこのアプリに取り入れようかと思う。
 - 本格的にGithubActionのCIを使ったが、便利さが感じられていいなと思った。（リリースビルドまで自動化してみたい）
 # コレから実装したい機能（間に合わなかったところ）
 - ページネーション機能（１ページだけではなくスクロールし続けたら次のインデックスを取得できるようにしたい）
@@ -144,6 +220,13 @@ fvm flutter run
 - 他のAPIに切り替えるようにしたい（リクルートだけではなくPlaceAPIなども使えるようにして、レストラン以外の検索もできるようにしたい）
 - テストを実装して品質保証を上げたい
 - アーキテクチャを考慮した実装を行いたい
+- 全体的なデザインを向上させたい
+
+# 目標とするデザイン
+| 現状 | 目標 |
+|:-:|:-:|
+||||
+
 
 # 帰属表示
 アプリのアイコンには[Lordicon](https://lordicon.com/)を使用しました。
