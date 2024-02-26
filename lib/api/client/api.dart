@@ -1,14 +1,11 @@
 // Package imports:
 import 'package:dio/dio.dart';
-import 'package:kokorahenn_flutter/env/env.dart';
 import 'package:retrofit/retrofit.dart';
 
 // Project imports:
 import 'app_dio.dart';
 
 part 'api.g.dart';
-
-String apiKey = Env.key;
 
 @RestApi(baseUrl: 'http://webservice.recruit.co.jp/hotpepper/gourmet/v1')
 abstract class HotpepperApiClient {
