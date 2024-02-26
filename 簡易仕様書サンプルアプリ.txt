@@ -19,7 +19,7 @@ https://apps.apple.com/jp/app/ここらへん/id6448917866
 https://github.com/gadgelogger/kokorahenn_flutter
 
 ## 開発環境
--  IDE:Visual Studio Code 1.86.1
+-  IDE:Visual Studio Code 1.86.
 -  Flutter: 3.19.1
 -  Dart: 3.3.0
 -  Xcode: 15.2
@@ -51,3 +51,4 @@ iOSは12.0以上
 - 使用しているライブラリはGithubのReadmeに記載しております。
 ### アドバイスして欲しいポイント
 - 大変烏滸がましいお願いですが、全体的なコードレビューをしていただきたいです。
+- 店舗一覧画面のUIが良くも悪くも普通なデザインのUIなので、もっとこうひと工夫をすると良いUIになるなどを教えていただきたいです。
