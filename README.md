@@ -184,7 +184,7 @@ $ fvm flutter pub get
 
 - freezedなどのコード生成
 ```
-$ fvm flutter pub run build_runner build --delete-conflicting-outputs
+$ fvm dart run build_runner build -d
 
 ```
 
