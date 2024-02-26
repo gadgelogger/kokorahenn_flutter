@@ -1,0 +1,19 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        generate_for:
+          - lib/**/*.dart
+      json_serializable:
+        options:
+          explicit_to_json: true
+          # DB側はsnakeケースになっているので
+          field_rename: snake
+
+global_options:
+  freezed:
+    runs_before:
+      - json_serializable
+  json_serializable:
+    runs_before:
+      - retrofit_generator

@@ -1,0 +1,81 @@
+{
+    "mainScreen": {
+      "title": "周辺のレストラン",
+      "button": "お店の詳細を見る",
+      "area_button": "検索範囲を変更",
+      "distance_label": "先にあります"
+    },
+    "restaurantDetailScreen": {
+        "detail":"詳細",
+        "address": "住所:",
+        "open": "営業時間:",
+        "close": "閉業日:",
+        "genre": "ジャンル:",
+        "freeFood": "食べ放題:",
+        "freeDrink": "飲み放題:",
+        "course": "コース:",
+        "capacity": "総席数:",
+        "nonSmoking": "禁煙:",
+        "budget": "平均予算:",
+        "card": "カード決済:",
+        "parking": "駐車場:",
+        "barrierFree": "バリアフリー:",
+        "otherMemo": "その他設備:",
+        "shopDetailMemo": "備考:",
+        "address_error": "住所不明",
+        "open_error": "営業時間不明",
+        "close_error": "閉業日不明",
+        "genre_error": "ジャンル不明",
+        "freeFood_error": "食べ放題不明",
+        "freeDrink_error": "飲み放題不明",
+        "course_error": "コース不明",
+        "capacity_error": "総席数不明",
+        "nonSmoking_error": "禁煙不明",
+        "budget_error": "平均予算不明",
+        "card_error": "カード決済不明",
+        "parking_error": "駐車場不明",
+        "barrierFree_error": "バリアフリー不明",
+        "otherMemo_error": "その他設備不明",
+        "shopDetailMemo_error": "備考不明"
+       
+
+    },
+    "settingsScreen": {
+      "title": "設定",
+      "themeTitle": "配色",
+      "theme": "テーマ",
+      "themeLight": "ライト",
+      "themeDark": "ダーク",
+      "themeSystem": "システム設定に従う",
+      "othersTitle": "その他",
+      "share": "このアプリをシェアする",
+      "privacy": "プライバシーポリシー",
+      "contact": "お問い合わせはこちら",
+      "info": "アプリについて",
+      "tutorial": "このアプリの使い方",
+      "license": "ライセンス",
+      "version": "バージョン情報",
+      "error": "エラー"
+    },
+    "tutorialScreen": {
+      "title": "ここらへん",
+      "titleDescription": "ここらへんは、あなたの周りにあるレストランを探すアプリです",
+      "secondTitle":"アップデートでより便利に",
+      "secondDescription": "将来的にレストラン以外の施設も検索できるようになる予定です",
+      "thirdTitle": "さあ、ご飯を食べに行こう!"
+    },
+    "bottomNavigation": {
+      "home": "ホーム",
+      "setting": "設定"
+    },
+    "error": {
+      "empty": "近くにレストランが見つかりませんでした\n画面右下の「三」から\n範囲を広げて再度検索してみてください",
+      "failed": "エラーが発生しました",
+      "map_open_error": "利用できる地図アプリがありません",
+      "url_open_error": "URLを開けませんでした"
+    },
+    "locales(map)": {
+      "en": "英語",
+      "ja": "日本語"
+    }
+  }

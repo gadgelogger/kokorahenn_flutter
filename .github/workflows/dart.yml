@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  flutter_analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+      - name: Install dependencies
+        run: flutter pub get
+      - name: check code format
+        run: dart format --set-exit-if-changed .
+      - name: Run build_runner
+        run: dart run build_runner build -d
+        env:
+          KEY: ${{ secrets.KEY }}
+      - name: Analyze
+        run: flutter analyze

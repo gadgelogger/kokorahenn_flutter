@@ -1,0 +1,79 @@
+{
+    "mainScreen": {
+      "title": "Nearby Restaurants",
+      "button": "View restaurant details",
+      "area_button": "Change search range",
+      "distance_label": " ahead"
+    },
+    "restaurantDetailScreen": {
+       "detail":"Detail",
+        "address": "Address:",
+        "open": "Business Hours:",
+        "close": "Closing days:",
+        "genre": "Genre of Business:",
+        "freeFood": "All-you-can-eat:",
+        "freeDrink": "All you can drink:",
+        "course": "Course:",
+        "capacity": "Total number of seats:",
+        "nonSmoking": "No Smoking:",
+        "budget": "Average Budget:",
+        "card": "Card Payment:",
+        "parking": "Parking lot:",
+        "barrierFree": "Barrier-free:",
+        "otherMemo": "Other Facilities:",
+        "shopDetailMemo": "Remarks:",
+        "address_error": "address Unknown",
+        "open_error": "Business Hours Unknown",
+        "close_error": "Closing days Unknown",
+        "genre_error": "Genre of Business Unknown",
+        "freeFood_error": "All-you-can-eat Unknown",
+        "freeDrink_error": "All you can drink Unknown",
+        "course_error": "Course Unknown",
+        "capacity_error": "Total number of seats Unknown",
+        "nonSmoking_error": "No Smoking Unknown",
+        "budget_error": "Average Budget Unknown",
+        "card_error": "Card Payment Unknown",
+        "parking_error": "Parking lot Unknown",
+        "barrierFree_error": "Barrier-free Unknown",
+        "otherMemo_error": "Other Facilities Unknown",
+        "shopDetailMemo_error": "Remarks Unknown"
+    },
+    "settingsScreen": {
+      "title": "Setting",
+      "themeTitle": "color scheme",
+      "theme": "Theme",
+      "themeLight": "Light",
+      "themeDark": "Dark",
+      "themeSystem": "System",
+      "othersTitle": "Other",
+      "share": "Share this app",
+      "privacy": "Privacy Policy",
+      "contact": "Contact us",
+      "info": "About the App",
+      "tutorial": "How to use this app",
+      "license": "License",
+      "version": "Version",
+      "error": "error"
+    },
+    "tutorialScreen": {
+      "title": "kokorahen",
+      "titleDescription": "Around here is an app to find restaurants around you!",
+      "secondTitle":"More convenient with updates",
+      "secondDescription": "In the future, you will be able to search for facilities other than restaurants.",
+      "thirdTitle": "Come on, let's go eat dinner.!"
+    },
+    "bottomNavigation": {
+      "home": "Home",
+      "setting": "Setting"
+    },
+    "error": {
+      "empty": "No restaurants found nearby, please expand your search using the buttons at the bottom right of the screen and try again.",
+      "failed": "An error has occurred.",
+      "map_open_error": "No map app available",
+      "url_open_error": "Could not open URL"
+    },
+    "locales(map)": {
+      "en": "English",
+      "ja": "Japanese"
+    }
+  }
