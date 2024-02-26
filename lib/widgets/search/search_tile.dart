@@ -32,8 +32,8 @@ class SearchTile extends ConsumerWidget {
       shop.lat ?? 0,
       shop.lng ?? 0,
     );
+    final distanceText = distance + t.mainScreen.distance_label;
 
-    final distanceText = '$distance先にあります.';
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
       child: ExpansionTileCard(

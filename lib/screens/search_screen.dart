@@ -9,35 +9,27 @@ import 'package:kokorahenn_flutter/widgets/search/error_message.dart';
 import 'package:kokorahenn_flutter/widgets/search/range_selector_modal.dart';
 import 'package:kokorahenn_flutter/widgets/search/search_list.dart';
 
-class SearchState extends StateNotifier<AsyncValue<List<Shop>>> {
-  SearchState() : super(const AsyncValue.loading()) {
-    fetchShopList();
-  }
+class ShopListNotifier extends StateNotifier<AsyncValue<List<Shop>>> {
+  ShopListNotifier() : super(const AsyncValue.loading());
 
-  int _selectedRange = 3;
-
-  Future<void> fetchShopList() async {
+  Future<void> fetchShopList({required int range}) async {
     state = const AsyncValue.loading();
     try {
-      final shops = await ApiService().fetchShopList(range: _selectedRange);
+      final shops = await ApiService().fetchShopList(range: range);
       state = AsyncValue.data(shops);
     } on Exception catch (e, s) {
       state = AsyncValue.error(e, s);
     }
   }
-
-  void setSelectedRange(int range) {
-    _selectedRange = range;
-    fetchShopList();
-  }
-
-  int get selectedRange => _selectedRange;
 }
 
-final searchProvider =
-    StateNotifierProvider<SearchState, AsyncValue<List<Shop>>>(
-  (ref) => SearchState(),
-);
+final selectedRangeProvider = StateProvider<int>((ref) => 3);
+
+final shopListProvider =
+    StateNotifierProvider<ShopListNotifier, AsyncValue<List<Shop>>>((ref) {
+  final range = ref.watch(selectedRangeProvider);
+  return ShopListNotifier()..fetchShopList(range: range);
+});
 
 class SearchPage extends ConsumerWidget {
   const SearchPage({super.key});
@@ -61,8 +53,10 @@ class SearchPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final searchState = ref.watch(searchProvider);
+    final searchState = ref.watch(shopListProvider);
+    final selectedRange = ref.watch(selectedRangeProvider);
     final searchPage = t.mainScreen;
+
     return Scaffold(
       appBar: AppBar(
         title: Text(searchPage.title),
@@ -74,8 +68,9 @@ class SearchPage extends ConsumerWidget {
           } else {
             return SearchList(
               shops: shops,
-              onRefresh: () =>
-                  ref.read(searchProvider.notifier).fetchShopList(),
+              onRefresh: () => ref
+                  .read(shopListProvider.notifier)
+                  .fetchShopList(range: selectedRange),
             );
           }
         },
@@ -85,11 +80,13 @@ class SearchPage extends ConsumerWidget {
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
           RangeSelectorModal().show(context, (selectedRange) {
-            ref.read(searchProvider.notifier).setSelectedRange(selectedRange);
+            ref.read(selectedRangeProvider.notifier).state = selectedRange;
+            ref
+                .read(shopListProvider.notifier)
+                .fetchShopList(range: selectedRange);
           });
         },
-        label:
-            Text(getRangeText(ref.read(searchProvider.notifier).selectedRange)),
+        label: Text(getRangeText(selectedRange)),
         icon: const Icon(Icons.sort),
       ),
     );

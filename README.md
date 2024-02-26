@@ -140,8 +140,7 @@ lib
 
 ```
 # ビルド手順（※メモ）
-> **:warning: 採点をされる方へ**  
-> - リクエストをする際に必要なAPIキーは別途お送りさせていただきます。
+
 
 - リポジトリのクローン
 ```
@@ -175,13 +174,11 @@ $ cd kokorahenn_flutter
 - fvm読み込み
 ```
 $ fvm install
-
 ```
 
 - 依存関係を読み込む
 ```
 $ fvm flutter pub get
-
 ```
 
 - freezedなどのコード生成
@@ -225,7 +222,7 @@ $ fvm flutter run
 # 目標とするデザイン
 | 現状 | 目標 |
 |:-:|:-:|
-||||
+|![image](https://github.com/gadgelogger/kokorahenn_flutter_review/assets/39609331/ed21d52f-d9e3-459d-8e72-76e1bf5b592e) | ![image](https://github.com/gadgelogger/kokorahenn_flutter_review/assets/39609331/21fce92c-600c-4db4-b47e-d9c256a06532) |
 
 
 # 帰属表示

@@ -20,7 +20,7 @@ class ApiService {
       final position = await locationService.getCurrentPosition();
 
       final response = await hotpepperClient.fetchHotpepperInfo(
-        apiKey: 'fbf9b9be8fecf32a', //レビューをしやすくするために、APIキーを設定しています。
+        apiKey: 'fbf9b9be8fecf32a',
         format: 'json',
         latitude: position.latitude,
         longitude: position.longitude,
