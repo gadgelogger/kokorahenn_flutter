@@ -26,4 +26,4 @@ jobs:
         env:
           KEY: ${{ secrets.KEY }}
       - name: Analyze
-        run: flutter analyze
+        run: dart analyze
