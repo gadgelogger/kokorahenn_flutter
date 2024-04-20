@@ -81,3 +81,5 @@ lib/model/response/hotpepper_gourmet_response_result.freezed.dart
 lib/model/response/hotpepper_gourmet_response_result.g.dart
 lib/model/response/hotpepper_gourmet_response.freezed.dart
 lib/model/response/hotpepper_gourmet_response.g.dart
+
+.DS_Store

@@ -20,6 +20,14 @@ void main() async {
   );
 }
 
+ThemeData _buildTheme(Brightness brightness) {
+  return ThemeData(
+    colorSchemeSeed: Colors.orange,
+    useMaterial3: true,
+    brightness: brightness,
+  );
+}
+
 class MainApp extends ConsumerWidget {
   const MainApp({super.key});
 
@@ -33,12 +41,4 @@ class MainApp extends ConsumerWidget {
       home: MainPage(),
     );
   }
-}
-
-ThemeData _buildTheme(Brightness brightness) {
-  return ThemeData(
-    colorSchemeSeed: Colors.orange,
-    useMaterial3: true,
-    brightness: brightness,
-  );
 }
